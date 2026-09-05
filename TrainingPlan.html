@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>14-Week Half Marathon Training Plan</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#12364a;--muted:#687b88;--accent:#2bb7c5;--accent-dark:#0b5673;--line:#d9e4ea;--done:#e8f7f3;--shadow:0 8px 24px rgba(19,54,74,.08)}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)} .container{width:min(1180px,calc(100% - 28px));margin:auto}
+header{background:linear-gradient(135deg,#0b5673,#12364a);color:#fff;padding:42px 0 34px;border-bottom:5px solid var(--accent)} .header-row{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.73rem;font-weight:800;color:var(--accent)} header h1{margin:.3rem 0 .35rem;font-size:clamp(1.7rem,4vw,3rem);line-height:1} header p{margin:0;color:#d7e9f0;max-width:720px}.progress-wrap{min-width:min(330px,100%)}.progress-top{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px}.progress{height:12px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.16)}.progress span{display:block;height:100%;width:0;background:var(--accent);transition:.2s}
+.toolbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(246,248,251,.9);border-bottom:1px solid var(--line)} .toolbar .container{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:11px 0}.toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}button,.jump{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:9px 12px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}button:hover,.jump:hover{border-color:var(--accent)}
+main{padding:24px 0 56px}.phase-title{margin:34px 0 14px;display:flex;align-items:center;gap:10px;font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em}.phase-title:after{content:"";height:1px;flex:1;background:var(--line)}.week-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}.week-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:14px}.week-head h2{margin:2px 0 0;font-size:1.65rem}.week-meta{color:var(--muted);font-weight:700}.days-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.day-card{position:relative;min-height:118px;border:1px solid var(--line);border-radius:12px;padding:12px 12px 12px 42px;background:#fbfdfe;cursor:pointer;transition:.12s}.day-card:hover{transform:translateY(-1px);border-color:#9fd9df}.day-card input{position:absolute;opacity:0}.checkmark{position:absolute;left:12px;top:13px;width:20px;height:20px;border:2px solid #93a9b5;border-radius:5px;background:#fff}.day-card input:checked+.checkmark{background:var(--accent-dark);border-color:var(--accent-dark)}.day-card input:checked+.checkmark:after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}.day-card:has(input:checked){background:var(--done);border-color:#b9ded5}.day-card:has(input:checked) .workout{text-decoration:line-through;color:#6c7b78}.day-label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-dark);margin-bottom:8px}.workout{display:block;font-size:.92rem;line-height:1.3;font-weight:650}
+.info-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel h2{margin-top:0}.key{margin:0;padding-left:1.2rem;color:#34505f}.key li{margin:.55rem 0}details{border-top:1px solid var(--line)}details:first-of-type{border-top:0}summary{cursor:pointer;display:grid;grid-template-columns:150px 1fr;gap:14px;padding:13px 0;align-items:start}summary span{color:var(--muted);font-weight:700}details ul{margin:0 0 14px 164px;padding-left:18px;color:#34505f}.notice{margin-top:16px;font-size:.9rem;color:var(--muted);background:#eef5f8;border-radius:12px;padding:12px 14px}footer{padding:20px 0 50px;color:var(--muted);font-size:.86rem}
+
+.speed-toggle{
+  margin-top:10px;
+  border:0;
+  background:transparent;
+  color:var(--accent-dark);
+  padding:0;
+  font-size:.8rem;
+  font-weight:800;
+  cursor:pointer;
+}
+.speed-toggle:hover{border:0;text-decoration:underline}
+.inline-workout{
+  display:none;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed var(--line);
+  font-size:.8rem;
+  line-height:1.35;
+  color:#34505f;
+}
+.inline-workout.open{display:block}
+.inline-workout ul{margin:.25rem 0 0;padding-left:1.1rem}
+.inline-workout li{margin:.25rem 0}
+.day-card.has-details{min-height:145px}
+
+@media(max-width:950px){.days-grid{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}}@media(max-width:560px){.days-grid{grid-template-columns:1fr}.day-card{min-height:84px}summary{grid-template-columns:1fr;gap:3px}details ul{margin-left:0}}
+
+@media(max-width:760px){
+  header{padding:14px 0 12px}
+  .toolbar{top:150px}
+}
+@media(max-width:520px){
+  .toolbar{top:170px}
+}
+
+
+[hidden]{display:none!important}
+.sync-backdrop{
+  position:fixed;inset:0;z-index:2000;background:rgba(9,31,43,.58);
+  display:flex;align-items:center;justify-content:center;padding:18px
+}
+.sync-modal{
+  width:min(560px,100%);background:#fff;border-radius:18px;border:1px solid var(--line);
+  box-shadow:0 24px 70px rgba(0,0,0,.25);padding:22px
+}
+.sync-modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}
+.sync-modal-head h2{margin:0}
+.icon-btn{border:0;background:transparent;font-size:1.55rem;line-height:1;padding:4px 8px}
+.sync-label{display:block;font-weight:800;margin:18px 0 7px}
+.sync-code-row{display:flex;gap:8px}
+.sync-code-row input{
+  min-width:0;flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 11px;
+  font:inherit;color:var(--ink);background:#fbfdfe
+}
+.sync-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.primary-btn{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.danger-btn{color:#8a2e2e}
+.sync-note{font-size:.88rem;line-height:1.45;color:var(--muted);margin:12px 0 0}
+.sync-config-state{
+  padding:10px 12px;border:1px solid var(--line);background:#f4f8fa;border-radius:10px;
+  color:#34505f;font-size:.9rem
+}
+.sync-config-state.ok{background:#e8f7f3;border-color:#b9ded5}
+.sync-config-state.bad{background:#fff2ee;border-color:#edc4b8;color:#7a392c}
+@media(max-width:560px){
+  .sync-code-row{flex-direction:column}
+  .sync-code-row button{width:100%}
+}
+
+</style>
+
+<style>
+.sticky-shell{
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.sticky-shell header{
+  position:static !important;
+  top:auto !important;
+  padding:20px 0 16px;
+}
+.sticky-shell .toolbar{
+  position:static !important;
+  top:auto !important;
+  z-index:auto;
+}
+@media(max-width:760px){
+  .sticky-shell header{padding:14px 0 12px}
+}
+</style>
+
+
+<style>
+/* Reliable fixed header + nav */
+.sticky-shell{
+  position:fixed !important;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  width:100%;
+}
+
+.sticky-shell header{
+  position:static !important;
+  top:auto !important;
+}
+
+.sticky-shell .toolbar{
+  position:static !important;
+  top:auto !important;
+}
+
+/* Space for the fixed header/nav is set dynamically by JavaScript. */
+body{
+  padding-top:var(--sticky-height, 0px);
+}
+</style>
+
+</head>
+<body>
+<div class="sticky-shell"><header><div class="container header-row"><div><span class="eyebrow">Break 2:00</span><h1>14-Week Half Marathon Plan</h1><p>Four weeks of base building followed by the 10-week race plan. Progress saves locally and can sync between devices.</p></div><div class="progress-wrap"><div class="progress-top"><span>Progress</span><strong id="progressText">0 / 98 days</strong></div><div class="progress"><span id="progressBar"></span></div></div></div></header>
+<nav class="toolbar"><div class="container"><strong id="statusText">Saved locally</strong><div class="toolbar-actions"><button id="syncSettingsBtn" type="button">Cloud sync</button><button id="markAllBtn" type="button">Mark all complete</button><button id="resetBtn" type="button">Reset progress</button></div></div></nav>
+</div>
+
+<div class="sync-backdrop" id="syncModal" hidden>
+  <section class="sync-modal" role="dialog" aria-modal="true" aria-labelledby="syncModalTitle">
+    <div class="sync-modal-head">
+      <h2 id="syncModalTitle">Cloud sync</h2>
+      <button class="icon-btn" id="closeSyncModalBtn" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="sync-config-state" id="syncConfigState"></div>
+    <label class="sync-label" for="syncCodeInput">Private sync code</label>
+    <div class="sync-code-row">
+      <input id="syncCodeInput" type="text" spellcheck="false" autocomplete="off"
+             placeholder="Generate or paste your sync code">
+      <button id="copySyncCodeBtn" type="button">Copy</button>
+    </div>
+    <div class="sync-actions">
+      <button id="generateSyncCodeBtn" type="button">Generate new code</button>
+      <button id="saveSyncCodeBtn" class="primary-btn" type="button">Save & sync</button>
+      <button id="disconnectSyncBtn" class="danger-btn" type="button">Disconnect this device</button>
+    </div>
+    <p class="sync-note">
+      Use the same code on your PC and phone. Treat it like a password: anyone who knows it can access
+      this training-plan progress. Your plan continues to save locally even when cloud sync is unavailable.
+    </p>
+  </section>
+</div>
+
+<main class="container"><div id="plan"></div>
+<div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li></ul><div class="notice">Your checkbox progress is stored with <code>localStorage</code>, so it survives closing and reopening the page on the same browser/profile.</div></section></div></main>
+<footer class="container">Self-contained website — no server or internet connection required.</footer>
+<script>
+const weeks = [
+{w:1,m:'15 miles',p:'Base',d:['Rest or cross-train','3 miles easy','4 miles easy + 4 × 20 sec strides','Rest','3 miles easy','Rest or cross-train','5 miles LSD']},
+{w:2,m:'16–18 miles',p:'Base',d:['Rest or cross-train','3 miles easy','4 miles easy + 6 × 20 sec strides','0–2 miles easy','3 miles easy','Rest or cross-train','6 miles LSD']},
+{w:3,m:'19–22 miles',p:'Base',d:['Rest or cross-train','3 miles easy','5 miles with light fartlek','0–3 miles easy','4 miles easy','Rest or cross-train','7 miles LSD']},
+{w:4,m:'21–24 miles',p:'Base',d:['Rest or cross-train','4 miles easy','5 miles easy + 6 × 20 sec strides','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles LSD']},
+{w:5,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','7 miles with intervals','Rest','0–3 miles easy','Rest or cross-train','8 miles LSD']},
+{w:6,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','6 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles LSD']},
+{w:7,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','7 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','10 miles LSD']},
+{w:8,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles with 3 miles at tempo']},
+{w:9,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7–8 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','10–12 miles LSD']},
+{w:10,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7–8 miles with intervals','0–3 miles easy','3–4 miles easy','Rest or cross-train','9–10 miles with 4 miles at tempo or 5K race']},
+{w:11,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','8 miles with intervals','0–3 miles easy','3 miles easy','Rest','12–14 miles LSD']},
+{w:12,m:'',p:'Training',d:['Rest or cross-train','3–4 miles easy','7–8 miles with intervals','0–3 miles easy','5 miles easy','Rest','10 miles with 6 miles at tempo']},
+{w:13,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','8 miles with intervals','0–3 miles easy','3 miles easy','Rest or cross-train','8 miles LSD']},
+{w:14,m:'',p:'Taper',d:['Rest or cross-train','2–3 miles easy','6 miles with intervals','3 miles easy','Rest','2–3 miles easy','RACE DAY — Half Marathon']}
+];
+const workouts=[
+['Week 5 · Day 31','7 miles with intervals',['2 miles easy warmup','8 × 400m at 2:00 (8:03/mile), 200m recovery','2 miles easy cooldown']],
+['Week 6 · Day 38','6 miles with intervals',['2 miles easy warmup','3 × 400m at 2:00, 200m recovery','2 × 600m at 3:00, 200m recovery','2 × 400m at 2:00, 200m recovery','1 mile easy cooldown']],
+['Week 7 · Day 45','7 miles with intervals',['2 miles easy warmup','3 × 400m at 2:00, 200m recovery','3 × 800m at 4:00, 400m recovery','1 mile easy cooldown']],
+['Week 8 · Day 52','7 miles with intervals',['2 miles easy warmup','2 × 400m, 1 × 800m, 1 × 1200m, 1 × 800m, 2 × 400m','Short reps at about 8:03/mile with recovery jogs','1 mile easy cooldown']],
+['Week 8 · Day 56','8 miles with 3 miles at tempo',['3 miles easy warmup','3 miles at 8:44/mile','2 miles easy cooldown']],
+['Week 9 · Day 59','7–8 miles with intervals',['2 miles easy warmup','400m, 800m, 1200m, 1 mile, 800m, 400m ladder','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
+['Week 10 · Day 66','7–8 miles with intervals',['2 miles easy warmup','1 × 400m, 5 × 800m, 1 × 400m','400s at 2:00; 800s at 4:00','1 mile easy cooldown']],
+['Week 10 · Day 70','9–10 miles with 4 miles at tempo (or 5K race)',['3 miles easy warmup','4 miles at 8:44/mile','3 miles easy cooldown']],
+['Week 11 · Day 73','8 miles with intervals',['2 miles easy warmup','400m, 800m, 1 mile, 2 × 800m','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
+['Week 12 · Day 80','7–8 miles with intervals',['2 miles easy warmup','10 × 400m at 2:00, 200m recovery','1–2 miles easy cooldown']],
+['Week 12 · Day 84','10 miles with 6 miles at tempo',['2 miles easy warmup','6 miles at 8:44/mile','2 miles easy cooldown']],
+['Week 13 · Day 87','8 miles with intervals',['2 miles easy warmup','400m, 1 mile, 1200m, 800m, 400m, 1200m, 800m, 400m','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
+['Week 14 · Day 94','6 miles with intervals (taper)',['2 miles easy warmup','400m, 800m, 400m, 800m, 400m at about 8:03/mile','Recovery jogs between reps','1 mile easy cooldown']]
+];
+const workoutByDay={};
+workouts.forEach(w=>{
+  const m=w[0].match(/Day\s+(\d+)/);
+  if(m) workoutByDay[Number(m[1])]=w;
+});
+let day=1,html='';
+weeks.forEach((x,i)=>{
+  if(i===0)html+='<div class="phase-title">Base building</div>';
+  if(i===4)html+='<div class="phase-title">Half marathon training</div>';
+  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${x.p}</span><h2>Week ${x.w}</h2></div><div class="week-meta">${x.m}</div></div><div class="days-grid">`;
+  x.d.forEach(t=>{
+    const detail=workoutByDay[day];
+    const extra=detail
+      ? `<button type="button" class="speed-toggle" data-target="detail-${day}">Show workout</button>
+         <div id="detail-${day}" class="inline-workout"><ul>${detail[2].map(v=>`<li>${v}</li>`).join('')}</ul></div>`
+      : '';
+    html+=`<label class="day-card${detail?' has-details':''}">
+      <input type="checkbox" data-day="${day}">
+      <span class="checkmark"></span>
+      <span class="day-label">Day ${day}</span>
+      <span class="workout">${t}</span>
+      ${extra}
+    </label>`;
+    day++;
+  });
+  html+='</div></section>';
+});
+document.getElementById('plan').innerHTML=html;
+
+document.querySelectorAll('.speed-toggle').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.preventDefault();
+    e.stopPropagation();
+    const panel=document.getElementById(btn.dataset.target);
+    const open=panel.classList.toggle('open');
+    btn.textContent=open?'Hide workout':'Show workout';
+  });
+});
+document.querySelectorAll('.inline-workout').forEach(p=>p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation()}));
+const LEGACY_KEY='half-marathon-14-week-progress-v1';
+const LOCAL_KEY='half-marathon-14-week-progress-v2';
+const SYNC_CODE_KEY='half-marathon-sync-code-v1';
+
+const boxes=[...document.querySelectorAll('input[data-day]')];
+const pt=document.getElementById('progressText');
+const pb=document.getElementById('progressBar');
+const st=document.getElementById('statusText');
+
+const syncModal=document.getElementById('syncModal');
+const syncSettingsBtn=document.getElementById('syncSettingsBtn');
+const closeSyncModalBtn=document.getElementById('closeSyncModalBtn');
+const syncCodeInput=document.getElementById('syncCodeInput');
+const copySyncCodeBtn=document.getElementById('copySyncCodeBtn');
+const generateSyncCodeBtn=document.getElementById('generateSyncCodeBtn');
+const saveSyncCodeBtn=document.getElementById('saveSyncCodeBtn');
+const disconnectSyncBtn=document.getElementById('disconnectSyncBtn');
+const syncConfigState=document.getElementById('syncConfigState');
+
+const cloudConfig=window.TRAINING_SYNC_CONFIG||{};
+const supabaseUrl=(cloudConfig.supabaseUrl||'').replace(/\/+$/,'');
+const supabaseKey=cloudConfig.publishableKey||'';
+const cloudConfigured=
+  /^https:\/\/.+/.test(supabaseUrl) &&
+  supabaseKey.length>20 &&
+  !/YOUR_|REPLACE/i.test(supabaseUrl+supabaseKey);
+
+let state={};
+let cloudSaveTimer=null;
+let cloudRequestInFlight=false;
+
+function nowStamp(){return Date.now()}
+
+function normalizeEntry(value,fallbackTime=0){
+  if(value && typeof value==='object' && 'checked' in value){
+    return {checked:!!value.checked,updatedAt:Number(value.updatedAt)||fallbackTime};
+  }
+  if(typeof value==='boolean'){
+    return {checked:value,updatedAt:fallbackTime};
+  }
+  return null;
+}
+
+function readLocalState(){
+  try{
+    const current=JSON.parse(localStorage.getItem(LOCAL_KEY)||'null');
+    if(current && current.days && typeof current.days==='object'){
+      const out={};
+      Object.entries(current.days).forEach(([day,value])=>{
+        const entry=normalizeEntry(value,0);
+        if(entry)out[day]=entry;
+      });
+      return out;
+    }
+  }catch(e){console.error('Unable to read local progress:',e)}
+
+  // Migrate progress from the earlier local-only version.
+  try{
+    const legacy=JSON.parse(localStorage.getItem(LEGACY_KEY)||'null');
+    if(legacy && typeof legacy==='object'){
+      const migrated={};
+      const stamp=nowStamp();
+      Object.entries(legacy).forEach(([day,value])=>{
+        if(typeof value==='boolean')migrated[day]={checked:value,updatedAt:stamp};
+      });
+      if(Object.keys(migrated).length){
+        localStorage.setItem(LOCAL_KEY,JSON.stringify({days:migrated}));
+        return migrated;
+      }
+    }
+  }catch(e){console.error('Unable to migrate old progress:',e)}
+
+  return {};
+}
+
+function writeLocalState(){
+  try{
+    localStorage.setItem(LOCAL_KEY,JSON.stringify({days:state}));
+    return true;
+  }catch(e){
+    console.error('Unable to save local progress:',e);
+    st.textContent='Could not save locally';
+    return false;
+  }
+}
+
+function updateProgress(){
+  const done=boxes.filter(b=>b.checked).length;
+  const total=boxes.length;
+  pt.textContent=`${done} / ${total} days`;
+  pb.style.width=total?`${(done/total)*100}%`:'0%';
+}
+
+function renderState(){
+  boxes.forEach(box=>{
+    box.checked=!!state[box.dataset.day]?.checked;
+  });
+  updateProgress();
+}
+
+function setStatus(message){
+  st.textContent=message;
+}
+
+function getSyncCode(){
+  try{return (localStorage.getItem(SYNC_CODE_KEY)||'').trim()}
+  catch(e){return ''}
+}
+
+function validSyncCode(code){
+  return /^[A-Za-z0-9_-]{24,128}$/.test(code);
+}
+
+function generateSyncCode(){
+  const bytes=new Uint8Array(24);
+  crypto.getRandomValues(bytes);
+  let binary='';
+  bytes.forEach(b=>binary+=String.fromCharCode(b));
+  return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+
+function mergeStates(localState,remoteState){
+  const merged={};
+  const keys=new Set([...Object.keys(localState||{}),...Object.keys(remoteState||{})]);
+  keys.forEach(day=>{
+    const local=normalizeEntry(localState?.[day],0);
+    const remote=normalizeEntry(remoteState?.[day],0);
+    if(!local && remote)merged[day]=remote;
+    else if(local && !remote)merged[day]=local;
+    else if(local && remote)merged[day]=(remote.updatedAt>local.updatedAt)?remote:local;
+  });
+  return merged;
+}
+
+function cloudHeaders(code,extra={}){
+  return {
+    'apikey':supabaseKey,
+    'x-sync-code':code,
+    'Content-Type':'application/json',
+    ...extra
+  };
+}
+
+async function saveCloudNow(){
+  const code=getSyncCode();
+  if(!cloudConfigured || !validSyncCode(code))return;
+  if(cloudRequestInFlight){
+    clearTimeout(cloudSaveTimer);
+    cloudSaveTimer=setTimeout(saveCloudNow,350);
+    return;
+  }
+
+  cloudRequestInFlight=true;
+  setStatus('Syncing…');
+  try{
+    const response=await fetch(
+      `${supabaseUrl}/rest/v1/training_progress?on_conflict=sync_code`,
+      {
+        method:'POST',
+        headers:cloudHeaders(code,{'Prefer':'resolution=merge-duplicates,return=minimal'}),
+        body:JSON.stringify({
+          sync_code:code,
+          progress:state,
+          updated_at:new Date().toISOString()
+        })
+      }
+    );
+    if(!response.ok){
+      const detail=await response.text();
+      throw new Error(`${response.status} ${detail}`);
+    }
+    setStatus('Cloud synced');
+  }catch(e){
+    console.error('Cloud save failed:',e);
+    setStatus('Cloud sync error — saved locally');
+  }finally{
+    cloudRequestInFlight=false;
+  }
+}
+
+function queueCloudSave(){
+  if(!cloudConfigured || !validSyncCode(getSyncCode())){
+    setStatus(cloudConfigured?'Saved locally — cloud not connected':'Saved locally');
+    return;
+  }
+  setStatus('Saving…');
+  clearTimeout(cloudSaveTimer);
+  cloudSaveTimer=setTimeout(saveCloudNow,450);
+}
+
+async function syncFromCloud(){
+  const code=getSyncCode();
+  if(!cloudConfigured){
+    setStatus('Saved locally — cloud not configured');
+    return;
+  }
+  if(!validSyncCode(code)){
+    setStatus('Saved locally — cloud not connected');
+    return;
+  }
+
+  setStatus('Syncing…');
+  try{
+    const response=await fetch(
+      `${supabaseUrl}/rest/v1/training_progress?sync_code=eq.${encodeURIComponent(code)}&select=progress&limit=1`,
+      {headers:cloudHeaders(code)}
+    );
+    if(!response.ok){
+      const detail=await response.text();
+      throw new Error(`${response.status} ${detail}`);
+    }
+
+    const rows=await response.json();
+    const remote=(rows[0] && rows[0].progress && typeof rows[0].progress==='object')
+      ? rows[0].progress
+      : {};
+
+    state=mergeStates(state,remote);
+    writeLocalState();
+    renderState();
+
+    // Save the merged result. This also creates the row on first use.
+    await saveCloudNow();
+  }catch(e){
+    console.error('Cloud load failed:',e);
+    setStatus('Cloud sync error — using local progress');
+  }
+}
+
+function saveDay(box){
+  state[box.dataset.day]={checked:box.checked,updatedAt:nowStamp()};
+  writeLocalState();
+  updateProgress();
+  queueCloudSave();
+}
+
+boxes.forEach(box=>box.addEventListener('change',()=>saveDay(box)));
+
+document.getElementById('resetBtn').onclick=()=>{
+  if(confirm('Clear all completed days?')){
+    const stamp=nowStamp();
+    boxes.forEach(box=>{
+      box.checked=false;
+      state[box.dataset.day]={checked:false,updatedAt:stamp};
+    });
+    writeLocalState();
+    updateProgress();
+    queueCloudSave();
+  }
+};
+
+document.getElementById('markAllBtn').onclick=()=>{
+  if(confirm('Mark every day complete?')){
+    const stamp=nowStamp();
+    boxes.forEach(box=>{
+      box.checked=true;
+      state[box.dataset.day]={checked:true,updatedAt:stamp};
+    });
+    writeLocalState();
+    updateProgress();
+    queueCloudSave();
+  }
+};
+
+function refreshSyncConfigMessage(){
+  if(cloudConfigured){
+    syncConfigState.className='sync-config-state ok';
+    syncConfigState.textContent='Supabase is configured. Enter the same private sync code on every device.';
+  }else{
+    syncConfigState.className='sync-config-state bad';
+    syncConfigState.textContent='Supabase is not configured yet. Edit cloud-config.js using the values from your Supabase project.';
+  }
+}
+
+function openSyncModal(){
+  refreshSyncConfigMessage();
+  syncCodeInput.value=getSyncCode();
+  syncModal.hidden=false;
+  setTimeout(()=>syncCodeInput.focus(),0);
+}
+
+function closeSyncModal(){
+  syncModal.hidden=true;
+}
+
+syncSettingsBtn.addEventListener('click',openSyncModal);
+closeSyncModalBtn.addEventListener('click',closeSyncModal);
+syncModal.addEventListener('click',e=>{if(e.target===syncModal)closeSyncModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!syncModal.hidden)closeSyncModal()});
+
+generateSyncCodeBtn.addEventListener('click',()=>{
+  syncCodeInput.value=generateSyncCode();
+  syncCodeInput.focus();
+  syncCodeInput.select();
+});
+
+copySyncCodeBtn.addEventListener('click',async()=>{
+  const code=syncCodeInput.value.trim();
+  if(!code)return;
+  try{
+    await navigator.clipboard.writeText(code);
+    copySyncCodeBtn.textContent='Copied';
+    setTimeout(()=>copySyncCodeBtn.textContent='Copy',1000);
+  }catch(e){
+    syncCodeInput.focus();
+    syncCodeInput.select();
+    document.execCommand('copy');
+  }
+});
+
+saveSyncCodeBtn.addEventListener('click',async()=>{
+  if(!cloudConfigured){
+    alert('Cloud sync is not configured yet. Follow SETUP.md and edit cloud-config.js first.');
+    return;
+  }
+  const code=syncCodeInput.value.trim();
+  if(!validSyncCode(code)){
+    alert('Use a sync code at least 24 characters long containing only letters, numbers, hyphens, or underscores. The Generate button creates a valid code.');
+    return;
+  }
+  localStorage.setItem(SYNC_CODE_KEY,code);
+  closeSyncModal();
+  await syncFromCloud();
+});
+
+disconnectSyncBtn.addEventListener('click',()=>{
+  localStorage.removeItem(SYNC_CODE_KEY);
+  syncCodeInput.value='';
+  setStatus('Saved locally — cloud disconnected');
+  closeSyncModal();
+});
+
+state=readLocalState();
+renderState();
+
+if(cloudConfigured && validSyncCode(getSyncCode())){
+  syncFromCloud();
+}else if(cloudConfigured){
+  setStatus('Saved locally — cloud not connected');
+}else{
+  setStatus('Saved locally — cloud not configured');
+}
+</script>
+<script>
+(function(){
+  function setStickyHeight(){
+    const shell = document.querySelector('.sticky-shell');
+    if(!shell) return;
+    document.documentElement.style.setProperty('--sticky-height', shell.offsetHeight + 'px');
+  }
+  window.addEventListener('load', setStickyHeight);
+  window.addEventListener('resize', setStickyHeight);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(setStickyHeight);
+  }
+  setStickyHeight();
+})();
+</script>
+
+</body></html>
