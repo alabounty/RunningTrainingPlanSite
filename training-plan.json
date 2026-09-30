@@ -4,232 +4,232 @@
   "subtitle": "Four weeks of base building followed by the 10-week race plan.",
   "weeks": [
     {
-      "number": 1,
+      "week": 1,
       "phase": "Base",
       "mileage": "15 miles",
       "days": [
         {
-          "id": "1",
+          "day": "1",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "2",
+          "day": "2",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "3",
+          "day": "3",
           "title": "4 miles easy + 4 × 20 sec strides",
           "workouts": [
             "a"
           ]
         },
         {
-          "id": "4",
+          "day": "4",
           "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "5",
+          "day": "5",
           "title": "3 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "6",
+          "day": "6",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "7",
+          "day": "7",
           "title": "5 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 2,
+      "week": 2,
       "phase": "Base",
       "mileage": "16–18 miles",
       "days": [
         {
-          "id": "8",
+          "day": "8",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "9",
+          "day": "9",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "10",
+          "day": "10",
           "title": "4 miles easy + 6 × 20 sec strides",
           "workouts": [
             "a"
           ]
         },
         {
-          "id": "11",
+          "day": "11",
           "title": "0–2 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "12",
+          "day": "12",
           "title": "3 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "13",
+          "day": "13",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "14",
+          "day": "14",
           "title": "6 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 3,
+      "week": 3,
       "phase": "Base",
       "mileage": "19–22 miles",
       "days": [
         {
-          "id": "15",
+          "day": "15",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "16",
+          "day": "16",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "17",
+          "day": "17",
           "title": "5 miles with light fartlek",
           "workouts": [
             "a"
           ]
         },
         {
-          "id": "18",
+          "day": "18",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "19",
+          "day": "19",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "20",
+          "day": "20",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "21",
+          "day": "21",
           "title": "7 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 4,
+      "week": 4,
       "phase": "Base",
       "mileage": "21–24 miles",
       "days": [
         {
-          "id": "22",
+          "day": "22",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "23",
+          "day": "23",
           "title": "4 miles easy",
           "workouts": []
         },
         {
-          "id": "24",
+          "day": "24",
           "title": "5 miles easy + 6 × 20 sec strides",
           "workouts": [
             "a"
           ]
         },
         {
-          "id": "25",
+          "day": "25",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "26",
+          "day": "26",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "27",
+          "day": "27",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "28",
+          "day": "28",
           "title": "8 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 5,
+      "week": 5,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "29",
+          "day": "29",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "30",
+          "day": "30",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "31",
+          "day": "31",
           "title": "7 miles with intervals",
           "workouts": [
             "run-31",
@@ -237,52 +237,52 @@
           ]
         },
         {
-          "id": "32",
+          "day": "32",
           "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "33",
+          "day": "33",
           "title": "0–3 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "34",
+          "day": "34",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "35",
+          "day": "35",
           "title": "8 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 6,
+      "week": 6,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "36",
+          "day": "36",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "37",
+          "day": "37",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "38",
+          "day": "38",
           "title": "6 miles with intervals",
           "workouts": [
             "run-38",
@@ -290,52 +290,52 @@
           ]
         },
         {
-          "id": "39",
+          "day": "39",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "40",
+          "day": "40",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "41",
+          "day": "41",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "42",
+          "day": "42",
           "title": "8 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 7,
+      "week": 7,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "43",
+          "day": "43",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "44",
+          "day": "44",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "45",
+          "day": "45",
           "title": "7 miles with intervals",
           "workouts": [
             "run-45",
@@ -343,52 +343,52 @@
           ]
         },
         {
-          "id": "46",
+          "day": "46",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "47",
+          "day": "47",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "48",
+          "day": "48",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "49",
+          "day": "49",
           "title": "10 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 8,
+      "week": 8,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "50",
+          "day": "50",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "51",
+          "day": "51",
           "title": "4 miles easy",
           "workouts": []
         },
         {
-          "id": "52",
+          "day": "52",
           "title": "7 miles with intervals",
           "workouts": [
             "run-52",
@@ -396,28 +396,28 @@
           ]
         },
         {
-          "id": "53",
+          "day": "53",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "54",
+          "day": "54",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "55",
+          "day": "55",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "56",
+          "day": "56",
           "title": "8 miles with 3 miles at tempo",
           "workouts": [
             "run-56"
@@ -426,24 +426,24 @@
       ]
     },
     {
-      "number": 9,
+      "week": 9,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "57",
+          "day": "57",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "58",
+          "day": "58",
           "title": "4 miles easy",
           "workouts": []
         },
         {
-          "id": "59",
+          "day": "59",
           "title": "7–8 miles with intervals",
           "workouts": [
             "run-59",
@@ -451,52 +451,52 @@
           ]
         },
         {
-          "id": "60",
+          "day": "60",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "61",
+          "day": "61",
           "title": "4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "62",
+          "day": "62",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "63",
+          "day": "63",
           "title": "10–12 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 10,
+      "week": 10,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "64",
+          "day": "64",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "65",
+          "day": "65",
           "title": "4 miles easy",
           "workouts": []
         },
         {
-          "id": "66",
+          "day": "66",
           "title": "7–8 miles with intervals",
           "workouts": [
             "run-66",
@@ -504,28 +504,28 @@
           ]
         },
         {
-          "id": "67",
+          "day": "67",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "68",
+          "day": "68",
           "title": "3–4 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "69",
+          "day": "69",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "70",
+          "day": "70",
           "title": "9–10 miles with 4 miles at tempo or 5K race",
           "workouts": [
             "run-70"
@@ -534,24 +534,24 @@
       ]
     },
     {
-      "number": 11,
+      "week": 11,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "71",
+          "day": "71",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "72",
+          "day": "72",
           "title": "4 miles easy",
           "workouts": []
         },
         {
-          "id": "73",
+          "day": "73",
           "title": "8 miles with intervals",
           "workouts": [
             "run-73",
@@ -559,52 +559,52 @@
           ]
         },
         {
-          "id": "74",
+          "day": "74",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "75",
+          "day": "75",
           "title": "3 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "76",
+          "day": "76",
           "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "77",
+          "day": "77",
           "title": "12–14 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 12,
+      "week": 12,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "78",
+          "day": "78",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "79",
+          "day": "79",
           "title": "3–4 miles easy",
           "workouts": []
         },
         {
-          "id": "80",
+          "day": "80",
           "title": "7–8 miles with intervals",
           "workouts": [
             "run-80",
@@ -612,28 +612,28 @@
           ]
         },
         {
-          "id": "81",
+          "day": "81",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "82",
+          "day": "82",
           "title": "5 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "83",
+          "day": "83",
           "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "84",
+          "day": "84",
           "title": "10 miles with 6 miles at tempo",
           "workouts": [
             "run-84"
@@ -642,24 +642,24 @@
       ]
     },
     {
-      "number": 13,
+      "week": 13,
       "phase": "Training",
       "mileage": "",
       "days": [
         {
-          "id": "85",
+          "day": "85",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "86",
+          "day": "86",
           "title": "3 miles easy",
           "workouts": []
         },
         {
-          "id": "87",
+          "day": "87",
           "title": "8 miles with intervals",
           "workouts": [
             "run-87",
@@ -667,78 +667,78 @@
           ]
         },
         {
-          "id": "88",
+          "day": "88",
           "title": "0–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "89",
+          "day": "89",
           "title": "3 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
-          "id": "90",
+          "day": "90",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "91",
+          "day": "91",
           "title": "8 miles LSD",
           "workouts": []
         }
       ]
     },
     {
-      "number": 14,
+      "week": 14,
       "phase": "Taper",
       "mileage": "",
       "days": [
         {
-          "id": "92",
+          "day": "92",
           "title": "Rest or cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "93",
+          "day": "93",
           "title": "2–3 miles easy",
           "workouts": []
         },
         {
-          "id": "94",
+          "day": "94",
           "title": "6 miles with intervals",
           "workouts": [
             "run-94"
           ]
         },
         {
-          "id": "95",
+          "day": "95",
           "title": "3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "96",
+          "day": "96",
           "title": "Rest",
           "workouts": []
         },
         {
-          "id": "97",
+          "day": "97",
           "title": "2–3 miles easy",
           "workouts": [
             "mobility"
           ]
         },
         {
-          "id": "98",
+          "day": "98",
           "title": "RACE DAY — Half Marathon",
           "workouts": []
         }
@@ -747,7 +747,7 @@
   ],
   "workouts": {
     "mobility": {
-      "title": "Mobility · 5–8 minutes",
+      "title": "Mobility - 5–8 minutes",
       "label": "Mobility",
       "items": [
         "Quad foam rolling: 60–90 seconds per leg, gentle pressure; avoid the painful outer knee.",
@@ -757,7 +757,7 @@
       ]
     },
     "a": {
-      "title": "Strength A · about 25 minutes",
+      "title": "Strength A - about 25 minutes",
       "label": "Strength A",
       "items": [
         "Run first. If recovered, lift later, ideally several hours afterward. Skip if speed work leaves you exhausted.",
@@ -771,7 +771,7 @@
       ]
     },
     "b": {
-      "title": "Strength B · about 20–25 minutes",
+      "title": "Strength B - about 20–25 minutes",
       "label": "Strength B",
       "items": [
         "Run first, then lift if recovered; separate by several hours when practical.",

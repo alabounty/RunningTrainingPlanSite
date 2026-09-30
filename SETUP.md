@@ -32,7 +32,8 @@ Save the file.
 Create a GitHub repository and put these files in its root:
 
 - `index.html`
-- `TrainingPlan.html`
+- `plan-loader.js`
+- `training-plan.json`
 - `cloud-config.js`
 
 (`database-setup.sql` and this setup file can be included too.)

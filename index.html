@@ -142,12 +142,10 @@ body{
 }
 </style>
 
-<style>
-.plan-editor{width:min(860px,calc(100vw - 24px))}.plan-editor label{display:block;margin:12px 0;font-weight:600}.plan-editor input:not([type=checkbox]),.plan-editor select,.plan-editor textarea{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:10px;border:1px solid var(--line);border-radius:7px;font:inherit;background:white;color:inherit}.editor-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.editor-actions button{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#eef5f8;cursor:pointer;font:inherit}.editor-columns{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.plan-editor .editor-check{display:flex;align-items:center;gap:8px;font-weight:400}.plan-editor fieldset{border:1px solid var(--line);border-radius:8px}.plan-editor input[type=checkbox]{position:static;opacity:1}.plan-editor h3{margin-top:26px}#editorStatus{color:var(--accent-dark);font-weight:600}@media(max-width:560px){.editor-columns{grid-template-columns:1fr}}
-</style></head>
+</head>
 <body>
 <div class="sticky-shell"><header><div class="container header-row"><div><span class="eyebrow">Break 2:00</span><h1>14-Week Half Marathon Plan</h1><p>Four weeks of base building followed by the 10-week race plan.</p></div><div class="progress-wrap"><div class="progress-top"><span>Progress</span><strong id="progressText">0 / 98 days</strong></div><div class="progress"><span id="progressBar"></span></div></div></div></header>
-<nav class="toolbar"><div class="container"><strong id="statusText">Saved locally</strong><div class="toolbar-actions"><button id="editPlanBtn" type="button">Edit plan</button><button id="syncSettingsBtn" type="button">Cloud sync</button><button id="markAllBtn" type="button">Mark all complete</button><button id="resetBtn" type="button">Reset progress</button></div></div></nav>
+<nav class="toolbar"><div class="container"><strong id="statusText">Saved locally</strong><div class="toolbar-actions"><button id="syncSettingsBtn" type="button">Cloud sync</button><button id="markAllBtn" type="button">Mark all complete</button><button id="resetBtn" type="button">Reset progress</button></div></div></nav>
 </div>
 
 <div class="sync-backdrop" id="syncModal" hidden>
@@ -175,7 +173,7 @@ body{
   </section>
 </div>
 
-<main class="container"><p id="planSource" role="status"></p><div id="plan">Loading plan…</div>
+<main class="container"><div id="plan">Loading plan…</div>
 <div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li><li><strong>Strength:</strong> Wednesday A and Friday B, after running. Start with one set for your first week of strength; build to two. Race week: omit strength.</li><li><strong>Mobility:</strong> Monday, Thursday and Saturday; gentle, comfortable movement. Skip anything that worsens symptoms.</li></ul><div class="notice">Outer foot/ankle soreness is not a confirmed diagnosis. Reduce running, especially speed work and hills, if it aggravates symptoms. Pause running and seek assessment for pinpoint bone tenderness, swelling, pain walking or pain at rest; seek a clinician or sports PT if symptoms persist despite 1–2 weeks of reduced load.</div></section></div></main>
 <dialog id="workoutDialog" class="workout-dialog" aria-labelledby="workoutDialogTitle">
   <div class="workout-dialog-head"><h2 id="workoutDialogTitle">Workout</h2><button type="button" id="workoutClose" class="workout-close" autofocus aria-label="Close workout">Close</button></div>
@@ -183,25 +181,25 @@ body{
 </dialog>
   
 <script src="cloud-config.js"></script>
-<script src="plan-editor.js"></script>
+<script src="plan-loader.js"></script>
   
 <script>
 (async()=>{
-const planData=await PlanEditor.load();
+const planData=await TrainingPlan.load();
 if(!planData)return;
-const esc=PlanEditor.escape;
+const esc=TrainingPlan.escape;
 document.querySelector('h1').textContent=planData.title;
 document.querySelector('header p').textContent=planData.subtitle;
 let html='',previousPhase=null;
 planData.weeks.forEach(week=>{
   if(previousPhase!==week.phase){html+=`<div class="phase-title">${esc(week.phase)}</div>`;previousPhase=week.phase;}
-  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${esc(week.phase)}</span><h2>Week ${week.number}</h2></div><div class="week-meta">${esc(week.mileage)}</div></div><div class="days-grid">`;
+  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${esc(week.phase)}</span><h2>Week ${week.week}</h2></div><div class="week-meta">${esc(week.mileage)}</div></div><div class="days-grid">`;
   week.days.forEach(d=>{
     const assigned=d.workouts.map(id=>planData.workouts[id]);
     const sections=assigned.map(w=>`<strong>${esc(w.title)}</strong><ul>${w.items.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`);
     const labels=assigned.map(w=>w.label).filter(Boolean);
-    const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${d.id}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${d.id}" class="inline-workout">${sections.join('')}</div>`:'';
-    html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${d.id}"><span class="checkmark"></span><span class="day-label">Day ${d.id}</span><span class="workout">${esc(d.title)}${labels.map(v=>`<br>+ ${esc(v)}`).join('')}</span>${extra}</label>`;
+    const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${d.day}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${d.day}" class="inline-workout">${sections.join('')}</div>`:'';
+    html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${d.day}"><span class="checkmark"></span><span class="day-label">Day ${d.day}</span><span class="workout">${esc(d.title)}${labels.map(v=>`<br>+ ${esc(v)}`).join('')}</span>${extra}</label>`;
   });
   html+='</div></section>';
 });
