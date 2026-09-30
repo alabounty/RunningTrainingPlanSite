@@ -46,6 +46,10 @@ html:has(.workout-dialog[open]){overflow:hidden}
 .inline-workout ul{margin:.25rem 0 0;padding-left:1.1rem}
 .inline-workout li{margin:.25rem 0}
 .day-card.has-details{min-height:145px}
+.workout-row-title{margin:16px 0 8px;font-size:.85rem;color:var(--accent-dark)}
+.day-card.empty{padding-left:12px;cursor:default;color:var(--muted)}
+.day-card.empty:hover{transform:none;border-color:var(--line)}
+.day-card:has(input:focus-visible){outline:2px solid var(--accent-dark);outline-offset:2px}
 
 @media(max-width:950px){.days-grid{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}}@media(max-width:560px){.days-grid{grid-template-columns:1fr}.day-card{min-height:84px}summary{grid-template-columns:1fr;gap:3px}details ul{margin-left:0}}
 
@@ -193,15 +197,26 @@ document.querySelector('header p').textContent=planData.subtitle;
 let html='',previousPhase=null;
 planData.weeks.forEach(week=>{
   if(previousPhase!==week.phase){html+=`<div class="phase-title">${esc(week.phase)}</div>`;previousPhase=week.phase;}
-  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${esc(week.phase)}</span><h2>Week ${week.week}</h2></div><div class="week-meta">${esc(week.mileage)}</div></div><div class="days-grid">`;
-  week.days.forEach(d=>{
-    const assigned=d.workouts.map(id=>planData.workouts[id]);
-    const sections=assigned.map(w=>`<strong>${esc(w.title)}</strong><ul>${w.items.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`);
-    const labels=assigned.map(w=>w.label).filter(Boolean);
-    const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${d.day}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${d.day}" class="inline-workout">${sections.join('')}</div>`:'';
-    html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${d.day}"><span class="checkmark"></span><span class="day-label">Day ${d.day}</span><span class="workout">${esc(d.title)}${labels.map(v=>`<br>+ ${esc(v)}`).join('')}</span>${extra}</label>`;
+  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${esc(week.phase)}</span><h2>Week ${week.week}</h2></div><div class="week-meta">${esc(week.mileage)}</div></div>`;
+  ['running','support'].forEach(type=>{
+    const rowTitle=type==='running'?'Running':'Strength / mobility';
+    html+=`<h3 class="workout-row-title" id="week-${week.week}-${type}">${rowTitle}</h3><div class="days-grid" role="group" aria-labelledby="week-${week.week}-${type}">`;
+    week.days.forEach(d=>{
+      const assigned=d.workouts.filter(id=>type==='running'?id.startsWith('run-'):!id.startsWith('run-')).map(id=>planData.workouts[id]);
+      if(type==='support'&&!assigned.length){
+        html+=`<div class="day-card empty"><span class="day-label">Day ${d.day}</span><span class="workout">None scheduled</span></div>`;
+        return;
+      }
+      const title=type==='running'?d.title:assigned.map(w=>w.label||w.title).join(' + ');
+      // Keep existing day keys for running progress; support has its own key.
+      const key=type==='running'?d.day:`${d.day}-support`;
+      const sections=assigned.map(w=>`<strong>${esc(w.title)}</strong><ul>${w.items.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`);
+      const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${key}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${key}" class="inline-workout">${sections.join('')}</div>`:'';
+      html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${key}" aria-label="Day ${d.day}, ${rowTitle}: ${esc(title)}"><span class="checkmark"></span><span class="day-label">Day ${d.day}</span><span class="workout">${esc(title)}</span>${extra}</label>`;
+    });
+    html+='</div>';
   });
-  html+='</div></section>';
+  html+='</section>';
 });
 document.getElementById('plan').innerHTML=html;
 const workoutDialog=document.getElementById('workoutDialog');
@@ -311,7 +326,7 @@ function writeLocalState(){
 function updateProgress(){
   const done=boxes.filter(b=>b.checked).length;
   const total=boxes.length;
-  pt.textContent=`${done} / ${total} days`;
+  pt.textContent=`${done} / ${total} activities`;
   pb.style.width=total?`${(done/total)*100}%`:'0%';
 }
 
@@ -461,7 +476,7 @@ function saveDay(box){
 boxes.forEach(box=>box.addEventListener('change',()=>saveDay(box)));
 
 document.getElementById('resetBtn').onclick=()=>{
-  if(confirm('Clear all completed days?')){
+  if(confirm('Clear all completed activities?')){
     const stamp=nowStamp();
     boxes.forEach(box=>{
       box.checked=false;
@@ -474,7 +489,7 @@ document.getElementById('resetBtn').onclick=()=>{
 };
 
 document.getElementById('markAllBtn').onclick=()=>{
-  if(confirm('Mark every day complete?')){
+  if(confirm('Mark every activity complete?')){
     const stamp=nowStamp();
     boxes.forEach(box=>{
       box.checked=true;
