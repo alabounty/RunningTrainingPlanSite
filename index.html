@@ -165,7 +165,7 @@ body{
 </div>
 
 <main class="container"><div id="plan"></div>
-<div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li></ul></section></div></main>
+<div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li><li><strong>Strength:</strong> Wednesday A and Friday B, after running. Start with one set for your first week of strength; build to two. Race week: omit strength.</li><li><strong>Mobility:</strong> Monday, Thursday and Saturday; gentle, comfortable movement. Skip anything that worsens symptoms.</li></ul><div class="notice">Outer foot/ankle soreness is not a confirmed diagnosis. Reduce running, especially speed work and hills, if it aggravates symptoms. Pause running and seek assessment for pinpoint bone tenderness, swelling, pain walking or pain at rest; seek a clinician or sports PT if symptoms persist despite 1–2 weeks of reduced load.</div></section></div></main>
   
 <script src="cloud-config.js"></script>
   
@@ -206,22 +206,60 @@ workouts.forEach(w=>{
   const m=w[0].match(/Day\s+(\d+)/);
   if(m) workoutByDay[Number(m[1])]=w;
 });
+// Supporting sessions share the existing daily workout expansion and completion state.
+const supportWorkouts = {
+  mobility: {title:'Mobility · 5–8 minutes', items:[
+    'Quad foam rolling: 60–90 seconds per leg, gentle pressure; avoid the painful outer knee.',
+    'Knee-to-wall ankle rocks: 8–10 per side; keep heel down and stop before pinching or pain.',
+    'Calf stretch: 2 × 20–30 seconds per side with knee straight, then slightly bent; gentle tension only.',
+    'Outward foot press: seated, press the outside of your foot into a cushion against a wall without moving the knee or ankle. 5 × 5–10 seconds per side, only if comfortable.'
+  ]},
+  a: {title:'Strength A · about 25 minutes', items:[
+    'Run first. If recovered, lift later, ideally several hours afterward. Skip if speed work leaves you exhausted.',
+    'Warm up: 5 minutes of comfortable walking or cycling.',
+    'Goblet squat: 2 × 8–10; comfortable depth, knees follow toes. Knees may move past toes.',
+    'Dumbbell Romanian deadlift: 2 × 8–10; soft knees, hips back, weights close.',
+    'Clamshell: 2 × 12–15 per side; keep hips stacked without rolling backward.',
+    'Straight-knee calf raise: 2 × 10–12, both feet on flat ground; lower over 3 seconds. Use seated raises if standing reproduces soreness.',
+    'Supported single-leg balance: 2 × 20–30 seconds per side; stand near support and keep pressure across the foot.',
+    'Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.'
+  ]},
+  b: {title:'Strength B · about 20–25 minutes', items:[
+    'Run first, then lift if recovered; separate by several hours when practical.',
+    'Warm up: 5 minutes of comfortable walking or cycling.',
+    'Supported split squat: 2 × 8 per side; rear foot stays on floor, hold a rack for balance.',
+    'Glute bridge: 2 × 10–15; lift through hips without arching the lower back.',
+    'Side-lying leg raise: 2 × 10–12 per side; top leg slightly behind you, toes facing forward.',
+    'Seated bent-knee calf raise: 2 × 12–15; knees about 90°, feet on flat ground. Raise and lower slowly; add a dumbbell on the thigh only when easy.',
+    'Side plank: 2 × 20–30 seconds per side; start from knees if needed.',
+    'Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.'
+  ]}
+};
+const supportGuidance = 'Starting now: use 1 set per strength exercise for your first week, then 2 sets if symptoms and running stay stable. Over the next 4–6 weeks, add repetitions before weight. Stop or modify movements that reproduce your symptoms; reduce the next session if soreness is worse the following morning. Postpone Bulgarian split squats and airplanes until basic work is comfortable.';
 let day=1,html='';
 weeks.forEach((x,i)=>{
   if(i===0)html+='<div class="phase-title">Base building</div>';
   if(i===4)html+='<div class="phase-title">Half marathon training</div>';
   html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${x.p}</span><h2>Week ${x.w}</h2></div><div class="week-meta">${x.m}</div></div><div class="days-grid">`;
-  x.d.forEach(t=>{
-    const detail=workoutByDay[day];
+  x.d.forEach((t,weekday)=>{
+    const runDetail=workoutByDay[day];
+    const support = [0,3,5].includes(weekday) ? supportWorkouts.mobility
+      : x.p !== 'Taper' && weekday === 2 ? supportWorkouts.a
+      : x.p !== 'Taper' && weekday === 4 ? supportWorkouts.b : null;
+    const detail = Boolean(runDetail || support);
+    const sections = [];
+    if(runDetail) sections.push(`<strong>Running workout</strong><ul>${runDetail[2].map(v=>`<li>${v}</li>`).join('')}</ul>`);
+    if(support) sections.push(`<strong>${support.title}</strong><ul>${support.items.map(v=>`<li>${v}</li>`).join('')}</ul>${support !== supportWorkouts.mobility ? `<p>${supportGuidance}</p>` : ''}`);
     const extra=detail
-      ? `<button type="button" class="speed-toggle" data-target="detail-${day}">Show workout</button>
-         <div id="detail-${day}" class="inline-workout"><ul>${detail[2].map(v=>`<li>${v}</li>`).join('')}</ul></div>`
+      ? `<button type="button" class="speed-toggle" data-target="detail-${day}" aria-expanded="false" aria-controls="detail-${day}">Show workout</button>
+         <div id="detail-${day}" class="inline-workout">${sections.join('')}</div>`
       : '';
+    const supportLabel = support ? (support === supportWorkouts.mobility ? 'Mobility' : weekday === 2 ? 'Strength A' : 'Strength B') : '';
     html+=`<label class="day-card${detail?' has-details':''}">
       <input type="checkbox" data-day="${day}">
       <span class="checkmark"></span>
       <span class="day-label">Day ${day}</span>
-      <span class="workout">${t}</span>
+      <span class="workout">${t}${supportLabel ? `<br>+ ${supportLabel}` : ''}</span>
       ${extra}
     </label>`;
     day++;
@@ -237,6 +275,7 @@ document.querySelectorAll('.speed-toggle').forEach(btn=>{
     const panel=document.getElementById(btn.dataset.target);
     const open=panel.classList.toggle('open');
     btn.textContent=open?'Hide workout':'Show workout';
+    btn.setAttribute('aria-expanded', String(open));
   });
 });
 document.querySelectorAll('.inline-workout').forEach(p=>p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation()}));
