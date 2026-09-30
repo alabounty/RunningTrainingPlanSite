@@ -33,7 +33,16 @@ main{padding:24px 0 56px}.phase-title{margin:34px 0 14px;display:flex;align-item
   line-height:1.35;
   color:#34505f;
 }
-.inline-workout.open{display:block}
+.workout-dialog{width:min(720px,calc(100vw - 32px));max-height:85dvh;box-sizing:border-box;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--ink);box-shadow:0 20px 80px #0004;overflow:auto}
+.workout-dialog::backdrop{background:rgba(15,35,45,.55)}
+.workout-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}
+.workout-dialog h2{margin:0;font-size:1.4rem}
+.workout-close{flex-shrink:0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:inherit;cursor:pointer;font:inherit}
+.workout-dialog-body{font-size:1rem;line-height:1.6}
+.workout-dialog-body ul{padding-left:22px;margin:8px 0 20px}
+.workout-dialog-body li{margin:8px 0}
+html:has(.workout-dialog[open]){overflow:hidden}
+@media(max-width:560px){.workout-dialog{padding:18px;width:calc(100vw - 20px);max-height:90dvh}}
 .inline-workout ul{margin:.25rem 0 0;padding-left:1.1rem}
 .inline-workout li{margin:.25rem 0}
 .day-card.has-details{min-height:145px}
@@ -166,6 +175,10 @@ body{
 
 <main class="container"><div id="plan"></div>
 <div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li><li><strong>Strength:</strong> Wednesday A and Friday B, after running. Start with one set for your first week of strength; build to two. Race week: omit strength.</li><li><strong>Mobility:</strong> Monday, Thursday and Saturday; gentle, comfortable movement. Skip anything that worsens symptoms.</li></ul><div class="notice">Outer foot/ankle soreness is not a confirmed diagnosis. Reduce running, especially speed work and hills, if it aggravates symptoms. Pause running and seek assessment for pinpoint bone tenderness, swelling, pain walking or pain at rest; seek a clinician or sports PT if symptoms persist despite 1–2 weeks of reduced load.</div></section></div></main>
+<dialog id="workoutDialog" class="workout-dialog" aria-labelledby="workoutDialogTitle">
+  <div class="workout-dialog-head"><h2 id="workoutDialogTitle">Workout</h2><button type="button" id="workoutClose" class="workout-close" autofocus aria-label="Close workout">Close</button></div>
+  <div id="workoutDialogBody" class="workout-dialog-body"></div>
+</dialog>
   
 <script src="cloud-config.js"></script>
   
@@ -251,7 +264,7 @@ weeks.forEach((x,i)=>{
     if(runDetail) sections.push(`<strong>Running workout</strong><ul>${runDetail[2].map(v=>`<li>${v}</li>`).join('')}</ul>`);
     if(support) sections.push(`<strong>${support.title}</strong><ul>${support.items.map(v=>`<li>${v}</li>`).join('')}</ul>${support !== supportWorkouts.mobility ? `<p>${supportGuidance}</p>` : ''}`);
     const extra=detail
-      ? `<button type="button" class="speed-toggle" data-target="detail-${day}" aria-expanded="false" aria-controls="detail-${day}">Show workout</button>
+      ? `<button type="button" class="speed-toggle" data-target="detail-${day}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button>
          <div id="detail-${day}" class="inline-workout">${sections.join('')}</div>`
       : '';
     const supportLabel = support ? (support === supportWorkouts.mobility ? 'Mobility' : weekday === 2 ? 'Strength A' : 'Strength B') : '';
@@ -268,17 +281,31 @@ weeks.forEach((x,i)=>{
 });
 document.getElementById('plan').innerHTML=html;
 
+const workoutDialog=document.getElementById('workoutDialog');
+let workoutTrigger=null;
 document.querySelectorAll('.speed-toggle').forEach(btn=>{
   btn.addEventListener('click',e=>{
     e.preventDefault();
     e.stopPropagation();
     const panel=document.getElementById(btn.dataset.target);
-    const open=panel.classList.toggle('open');
-    btn.textContent=open?'Hide workout':'Show workout';
-    btn.setAttribute('aria-expanded', String(open));
+    const card=btn.closest('.day-card');
+    document.getElementById('workoutDialogTitle').textContent=card.querySelector('.day-label').textContent+' · Workout';
+    document.getElementById('workoutDialogBody').innerHTML=panel.innerHTML;
+    workoutTrigger=btn;
+    btn.setAttribute('aria-expanded','true');
+    workoutDialog.showModal();
   });
 });
-document.querySelectorAll('.inline-workout').forEach(p=>p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation()}));
+document.getElementById('workoutClose').addEventListener('click',()=>workoutDialog.close());
+// Native dialog handles Escape and keeps keyboard focus inside the popup.
+workoutDialog.addEventListener('click',e=>{
+  if(e.target!==workoutDialog) return;
+  const bounds=workoutDialog.getBoundingClientRect();
+  if(e.clientX<bounds.left || e.clientX>bounds.right || e.clientY<bounds.top || e.clientY>bounds.bottom) workoutDialog.close();
+});
+workoutDialog.addEventListener('close',()=>{
+  if(workoutTrigger){workoutTrigger.setAttribute('aria-expanded','false');workoutTrigger.focus();}
+});
 const LEGACY_KEY='half-marathon-14-week-progress-v1';
 const LOCAL_KEY='half-marathon-14-week-progress-v2';
 const SYNC_CODE_KEY='half-marathon-sync-code-v1';
