@@ -1,0 +1,914 @@
+{
+  "version": 1,
+  "title": "14-Week Half Marathon Plan",
+  "subtitle": "Four weeks of base building followed by the 10-week race plan.",
+  "weeks": [
+    {
+      "number": 1,
+      "phase": "Base",
+      "mileage": "15 miles",
+      "days": [
+        {
+          "id": "1",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "2",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "3",
+          "title": "4 miles easy + 4 × 20 sec strides",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "id": "4",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "5",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "6",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "7",
+          "title": "5 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "phase": "Base",
+      "mileage": "16–18 miles",
+      "days": [
+        {
+          "id": "8",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "9",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "10",
+          "title": "4 miles easy + 6 × 20 sec strides",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "id": "11",
+          "title": "0–2 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "12",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "13",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "14",
+          "title": "6 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "phase": "Base",
+      "mileage": "19–22 miles",
+      "days": [
+        {
+          "id": "15",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "16",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "17",
+          "title": "5 miles with light fartlek",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "id": "18",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "19",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "20",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "21",
+          "title": "7 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "phase": "Base",
+      "mileage": "21–24 miles",
+      "days": [
+        {
+          "id": "22",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "23",
+          "title": "4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "24",
+          "title": "5 miles easy + 6 × 20 sec strides",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "id": "25",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "26",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "27",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "28",
+          "title": "8 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "29",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "30",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "31",
+          "title": "7 miles with intervals",
+          "workouts": [
+            "run-31",
+            "a"
+          ]
+        },
+        {
+          "id": "32",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "33",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "34",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "35",
+          "title": "8 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "36",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "37",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "38",
+          "title": "6 miles with intervals",
+          "workouts": [
+            "run-38",
+            "a"
+          ]
+        },
+        {
+          "id": "39",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "40",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "41",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "42",
+          "title": "8 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "43",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "44",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "45",
+          "title": "7 miles with intervals",
+          "workouts": [
+            "run-45",
+            "a"
+          ]
+        },
+        {
+          "id": "46",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "47",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "48",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "49",
+          "title": "10 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "50",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "51",
+          "title": "4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "52",
+          "title": "7 miles with intervals",
+          "workouts": [
+            "run-52",
+            "a"
+          ]
+        },
+        {
+          "id": "53",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "54",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "55",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "56",
+          "title": "8 miles with 3 miles at tempo",
+          "workouts": [
+            "run-56"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "57",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "58",
+          "title": "4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "59",
+          "title": "7–8 miles with intervals",
+          "workouts": [
+            "run-59",
+            "a"
+          ]
+        },
+        {
+          "id": "60",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "61",
+          "title": "4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "62",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "63",
+          "title": "10–12 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "64",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "65",
+          "title": "4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "66",
+          "title": "7–8 miles with intervals",
+          "workouts": [
+            "run-66",
+            "a"
+          ]
+        },
+        {
+          "id": "67",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "68",
+          "title": "3–4 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "69",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "70",
+          "title": "9–10 miles with 4 miles at tempo or 5K race",
+          "workouts": [
+            "run-70"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "71",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "72",
+          "title": "4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "73",
+          "title": "8 miles with intervals",
+          "workouts": [
+            "run-73",
+            "a"
+          ]
+        },
+        {
+          "id": "74",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "75",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "76",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "77",
+          "title": "12–14 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "78",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "79",
+          "title": "3–4 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "80",
+          "title": "7–8 miles with intervals",
+          "workouts": [
+            "run-80",
+            "a"
+          ]
+        },
+        {
+          "id": "81",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "82",
+          "title": "5 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "83",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "84",
+          "title": "10 miles with 6 miles at tempo",
+          "workouts": [
+            "run-84"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "phase": "Training",
+      "mileage": "",
+      "days": [
+        {
+          "id": "85",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "86",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "87",
+          "title": "8 miles with intervals",
+          "workouts": [
+            "run-87",
+            "a"
+          ]
+        },
+        {
+          "id": "88",
+          "title": "0–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "89",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "id": "90",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "91",
+          "title": "8 miles LSD",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "phase": "Taper",
+      "mileage": "",
+      "days": [
+        {
+          "id": "92",
+          "title": "Rest or cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "93",
+          "title": "2–3 miles easy",
+          "workouts": []
+        },
+        {
+          "id": "94",
+          "title": "6 miles with intervals",
+          "workouts": [
+            "run-94"
+          ]
+        },
+        {
+          "id": "95",
+          "title": "3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "96",
+          "title": "Rest",
+          "workouts": []
+        },
+        {
+          "id": "97",
+          "title": "2–3 miles easy",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "id": "98",
+          "title": "RACE DAY — Half Marathon",
+          "workouts": []
+        }
+      ]
+    }
+  ],
+  "workouts": {
+    "mobility": {
+      "title": "Mobility · 5–8 minutes",
+      "label": "Mobility",
+      "items": [
+        "Quad foam rolling: 60–90 seconds per leg, gentle pressure; avoid the painful outer knee.",
+        "Knee-to-wall ankle rocks: 8–10 per side; keep heel down and stop before pinching or pain.",
+        "Calf stretch: 2 × 20–30 seconds per side with knee straight, then slightly bent; gentle tension only.",
+        "Outward foot press: seated, press the outside of your foot into a cushion against a wall without moving the knee or ankle. 5 × 5–10 seconds per side, only if comfortable."
+      ]
+    },
+    "a": {
+      "title": "Strength A · about 25 minutes",
+      "label": "Strength A",
+      "items": [
+        "Run first. If recovered, lift later, ideally several hours afterward. Skip if speed work leaves you exhausted.",
+        "Warm up: 5 minutes of comfortable walking or cycling.",
+        "Goblet squat: 2 × 8–10; comfortable depth, knees follow toes. Knees may move past toes.",
+        "Dumbbell Romanian deadlift: 2 × 8–10; soft knees, hips back, weights close.",
+        "Clamshell: 2 × 12–15 per side; keep hips stacked without rolling backward.",
+        "Straight-knee calf raise: 2 × 10–12, both feet on flat ground; lower over 3 seconds. Use seated raises if standing reproduces soreness.",
+        "Supported single-leg balance: 2 × 20–30 seconds per side; stand near support and keep pressure across the foot.",
+        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve."
+      ]
+    },
+    "b": {
+      "title": "Strength B · about 20–25 minutes",
+      "label": "Strength B",
+      "items": [
+        "Run first, then lift if recovered; separate by several hours when practical.",
+        "Warm up: 5 minutes of comfortable walking or cycling.",
+        "Supported split squat: 2 × 8 per side; rear foot stays on floor, hold a rack for balance.",
+        "Glute bridge: 2 × 10–15; lift through hips without arching the lower back.",
+        "Side-lying leg raise: 2 × 10–12 per side; top leg slightly behind you, toes facing forward.",
+        "Seated bent-knee calf raise: 2 × 12–15; knees about 90°, feet on flat ground. Raise and lower slowly; add a dumbbell on the thigh only when easy.",
+        "Side plank: 2 × 20–30 seconds per side; start from knees if needed.",
+        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve."
+      ]
+    },
+    "run-31": {
+      "title": "7 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "8 × 400m at 2:00 (8:03/mile), 200m recovery",
+        "2 miles easy cooldown"
+      ]
+    },
+    "run-38": {
+      "title": "6 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "3 × 400m at 2:00, 200m recovery",
+        "2 × 600m at 3:00, 200m recovery",
+        "2 × 400m at 2:00, 200m recovery",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-45": {
+      "title": "7 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "3 × 400m at 2:00, 200m recovery",
+        "3 × 800m at 4:00, 400m recovery",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-52": {
+      "title": "7 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "2 × 400m, 1 × 800m, 1 × 1200m, 1 × 800m, 2 × 400m",
+        "Short reps at about 8:03/mile with recovery jogs",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-56": {
+      "title": "8 miles with 3 miles at tempo",
+      "label": "",
+      "items": [
+        "3 miles easy warmup",
+        "3 miles at 8:44/mile",
+        "2 miles easy cooldown"
+      ]
+    },
+    "run-59": {
+      "title": "7–8 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "400m, 800m, 1200m, 1 mile, 800m, 400m ladder",
+        "Short reps at about 8:03/mile; mile at 8:00–8:10",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-66": {
+      "title": "7–8 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "1 × 400m, 5 × 800m, 1 × 400m",
+        "400s at 2:00; 800s at 4:00",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-70": {
+      "title": "9–10 miles with 4 miles at tempo (or 5K race)",
+      "label": "",
+      "items": [
+        "3 miles easy warmup",
+        "4 miles at 8:44/mile",
+        "3 miles easy cooldown"
+      ]
+    },
+    "run-73": {
+      "title": "8 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "400m, 800m, 1 mile, 2 × 800m",
+        "Short reps at about 8:03/mile; mile at 8:00–8:10",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-80": {
+      "title": "7–8 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "10 × 400m at 2:00, 200m recovery",
+        "1–2 miles easy cooldown"
+      ]
+    },
+    "run-84": {
+      "title": "10 miles with 6 miles at tempo",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "6 miles at 8:44/mile",
+        "2 miles easy cooldown"
+      ]
+    },
+    "run-87": {
+      "title": "8 miles with intervals",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "400m, 1 mile, 1200m, 800m, 400m, 1200m, 800m, 400m",
+        "Short reps at about 8:03/mile; mile at 8:00–8:10",
+        "1 mile easy cooldown"
+      ]
+    },
+    "run-94": {
+      "title": "6 miles with intervals (taper)",
+      "label": "",
+      "items": [
+        "2 miles easy warmup",
+        "400m, 800m, 400m, 800m, 400m at about 8:03/mile",
+        "Recovery jogs between reps",
+        "1 mile easy cooldown"
+      ]
+    }
+  }
+}

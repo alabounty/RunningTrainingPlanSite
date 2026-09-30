@@ -142,10 +142,12 @@ body{
 }
 </style>
 
-</head>
+<style>
+.plan-editor{width:min(860px,calc(100vw - 24px))}.plan-editor label{display:block;margin:12px 0;font-weight:600}.plan-editor input:not([type=checkbox]),.plan-editor select,.plan-editor textarea{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:10px;border:1px solid var(--line);border-radius:7px;font:inherit;background:white;color:inherit}.editor-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.editor-actions button{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#eef5f8;cursor:pointer;font:inherit}.editor-columns{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.plan-editor .editor-check{display:flex;align-items:center;gap:8px;font-weight:400}.plan-editor fieldset{border:1px solid var(--line);border-radius:8px}.plan-editor input[type=checkbox]{position:static;opacity:1}.plan-editor h3{margin-top:26px}#editorStatus{color:var(--accent-dark);font-weight:600}@media(max-width:560px){.editor-columns{grid-template-columns:1fr}}
+</style></head>
 <body>
 <div class="sticky-shell"><header><div class="container header-row"><div><span class="eyebrow">Break 2:00</span><h1>14-Week Half Marathon Plan</h1><p>Four weeks of base building followed by the 10-week race plan.</p></div><div class="progress-wrap"><div class="progress-top"><span>Progress</span><strong id="progressText">0 / 98 days</strong></div><div class="progress"><span id="progressBar"></span></div></div></div></header>
-<nav class="toolbar"><div class="container"><strong id="statusText">Saved locally</strong><div class="toolbar-actions"><button id="syncSettingsBtn" type="button">Cloud sync</button><button id="markAllBtn" type="button">Mark all complete</button><button id="resetBtn" type="button">Reset progress</button></div></div></nav>
+<nav class="toolbar"><div class="container"><strong id="statusText">Saved locally</strong><div class="toolbar-actions"><button id="editPlanBtn" type="button">Edit plan</button><button id="syncSettingsBtn" type="button">Cloud sync</button><button id="markAllBtn" type="button">Mark all complete</button><button id="resetBtn" type="button">Reset progress</button></div></div></nav>
 </div>
 
 <div class="sync-backdrop" id="syncModal" hidden>
@@ -173,7 +175,7 @@ body{
   </section>
 </div>
 
-<main class="container"><div id="plan"></div>
+<main class="container"><p id="planSource" role="status"></p><div id="plan">Loading plan…</div>
 <div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li><li><strong>Strength:</strong> Wednesday A and Friday B, after running. Start with one set for your first week of strength; build to two. Race week: omit strength.</li><li><strong>Mobility:</strong> Monday, Thursday and Saturday; gentle, comfortable movement. Skip anything that worsens symptoms.</li></ul><div class="notice">Outer foot/ankle soreness is not a confirmed diagnosis. Reduce running, especially speed work and hills, if it aggravates symptoms. Pause running and seek assessment for pinpoint bone tenderness, swelling, pain walking or pain at rest; seek a clinician or sports PT if symptoms persist despite 1–2 weeks of reduced load.</div></section></div></main>
 <dialog id="workoutDialog" class="workout-dialog" aria-labelledby="workoutDialogTitle">
   <div class="workout-dialog-head"><h2 id="workoutDialogTitle">Workout</h2><button type="button" id="workoutClose" class="workout-close" autofocus aria-label="Close workout">Close</button></div>
@@ -181,130 +183,47 @@ body{
 </dialog>
   
 <script src="cloud-config.js"></script>
+<script src="plan-editor.js"></script>
   
 <script>
-const weeks = [
-{w:1,m:'15 miles',p:'Base',d:['Rest or cross-train','3 miles easy','4 miles easy + 4 × 20 sec strides','Rest','3 miles easy','Rest or cross-train','5 miles LSD']},
-{w:2,m:'16–18 miles',p:'Base',d:['Rest or cross-train','3 miles easy','4 miles easy + 6 × 20 sec strides','0–2 miles easy','3 miles easy','Rest or cross-train','6 miles LSD']},
-{w:3,m:'19–22 miles',p:'Base',d:['Rest or cross-train','3 miles easy','5 miles with light fartlek','0–3 miles easy','4 miles easy','Rest or cross-train','7 miles LSD']},
-{w:4,m:'21–24 miles',p:'Base',d:['Rest or cross-train','4 miles easy','5 miles easy + 6 × 20 sec strides','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles LSD']},
-{w:5,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','7 miles with intervals','Rest','0–3 miles easy','Rest or cross-train','8 miles LSD']},
-{w:6,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','6 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles LSD']},
-{w:7,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','7 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','10 miles LSD']},
-{w:8,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','8 miles with 3 miles at tempo']},
-{w:9,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7–8 miles with intervals','0–3 miles easy','4 miles easy','Rest or cross-train','10–12 miles LSD']},
-{w:10,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','7–8 miles with intervals','0–3 miles easy','3–4 miles easy','Rest or cross-train','9–10 miles with 4 miles at tempo or 5K race']},
-{w:11,m:'',p:'Training',d:['Rest or cross-train','4 miles easy','8 miles with intervals','0–3 miles easy','3 miles easy','Rest','12–14 miles LSD']},
-{w:12,m:'',p:'Training',d:['Rest or cross-train','3–4 miles easy','7–8 miles with intervals','0–3 miles easy','5 miles easy','Rest','10 miles with 6 miles at tempo']},
-{w:13,m:'',p:'Training',d:['Rest or cross-train','3 miles easy','8 miles with intervals','0–3 miles easy','3 miles easy','Rest or cross-train','8 miles LSD']},
-{w:14,m:'',p:'Taper',d:['Rest or cross-train','2–3 miles easy','6 miles with intervals','3 miles easy','Rest','2–3 miles easy','RACE DAY — Half Marathon']}
-];
-const workouts=[
-['Week 5 · Day 31','7 miles with intervals',['2 miles easy warmup','8 × 400m at 2:00 (8:03/mile), 200m recovery','2 miles easy cooldown']],
-['Week 6 · Day 38','6 miles with intervals',['2 miles easy warmup','3 × 400m at 2:00, 200m recovery','2 × 600m at 3:00, 200m recovery','2 × 400m at 2:00, 200m recovery','1 mile easy cooldown']],
-['Week 7 · Day 45','7 miles with intervals',['2 miles easy warmup','3 × 400m at 2:00, 200m recovery','3 × 800m at 4:00, 400m recovery','1 mile easy cooldown']],
-['Week 8 · Day 52','7 miles with intervals',['2 miles easy warmup','2 × 400m, 1 × 800m, 1 × 1200m, 1 × 800m, 2 × 400m','Short reps at about 8:03/mile with recovery jogs','1 mile easy cooldown']],
-['Week 8 · Day 56','8 miles with 3 miles at tempo',['3 miles easy warmup','3 miles at 8:44/mile','2 miles easy cooldown']],
-['Week 9 · Day 59','7–8 miles with intervals',['2 miles easy warmup','400m, 800m, 1200m, 1 mile, 800m, 400m ladder','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
-['Week 10 · Day 66','7–8 miles with intervals',['2 miles easy warmup','1 × 400m, 5 × 800m, 1 × 400m','400s at 2:00; 800s at 4:00','1 mile easy cooldown']],
-['Week 10 · Day 70','9–10 miles with 4 miles at tempo (or 5K race)',['3 miles easy warmup','4 miles at 8:44/mile','3 miles easy cooldown']],
-['Week 11 · Day 73','8 miles with intervals',['2 miles easy warmup','400m, 800m, 1 mile, 2 × 800m','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
-['Week 12 · Day 80','7–8 miles with intervals',['2 miles easy warmup','10 × 400m at 2:00, 200m recovery','1–2 miles easy cooldown']],
-['Week 12 · Day 84','10 miles with 6 miles at tempo',['2 miles easy warmup','6 miles at 8:44/mile','2 miles easy cooldown']],
-['Week 13 · Day 87','8 miles with intervals',['2 miles easy warmup','400m, 1 mile, 1200m, 800m, 400m, 1200m, 800m, 400m','Short reps at about 8:03/mile; mile at 8:00–8:10','1 mile easy cooldown']],
-['Week 14 · Day 94','6 miles with intervals (taper)',['2 miles easy warmup','400m, 800m, 400m, 800m, 400m at about 8:03/mile','Recovery jogs between reps','1 mile easy cooldown']]
-];
-const workoutByDay={};
-workouts.forEach(w=>{
-  const m=w[0].match(/Day\s+(\d+)/);
-  if(m) workoutByDay[Number(m[1])]=w;
-});
-// Supporting sessions share the existing daily workout expansion and completion state.
-const supportWorkouts = {
-  mobility: {title:'Mobility · 5–8 minutes', items:[
-    'Quad foam rolling: 60–90 seconds per leg, gentle pressure; avoid the painful outer knee.',
-    'Knee-to-wall ankle rocks: 8–10 per side; keep heel down and stop before pinching or pain.',
-    'Calf stretch: 2 × 20–30 seconds per side with knee straight, then slightly bent; gentle tension only.',
-    'Outward foot press: seated, press the outside of your foot into a cushion against a wall without moving the knee or ankle. 5 × 5–10 seconds per side, only if comfortable.'
-  ]},
-  a: {title:'Strength A · about 25 minutes', items:[
-    'Run first. If recovered, lift later, ideally several hours afterward. Skip if speed work leaves you exhausted.',
-    'Warm up: 5 minutes of comfortable walking or cycling.',
-    'Goblet squat: 2 × 8–10; comfortable depth, knees follow toes. Knees may move past toes.',
-    'Dumbbell Romanian deadlift: 2 × 8–10; soft knees, hips back, weights close.',
-    'Clamshell: 2 × 12–15 per side; keep hips stacked without rolling backward.',
-    'Straight-knee calf raise: 2 × 10–12, both feet on flat ground; lower over 3 seconds. Use seated raises if standing reproduces soreness.',
-    'Supported single-leg balance: 2 × 20–30 seconds per side; stand near support and keep pressure across the foot.',
-    'Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.'
-  ]},
-  b: {title:'Strength B · about 20–25 minutes', items:[
-    'Run first, then lift if recovered; separate by several hours when practical.',
-    'Warm up: 5 minutes of comfortable walking or cycling.',
-    'Supported split squat: 2 × 8 per side; rear foot stays on floor, hold a rack for balance.',
-    'Glute bridge: 2 × 10–15; lift through hips without arching the lower back.',
-    'Side-lying leg raise: 2 × 10–12 per side; top leg slightly behind you, toes facing forward.',
-    'Seated bent-knee calf raise: 2 × 12–15; knees about 90°, feet on flat ground. Raise and lower slowly; add a dumbbell on the thigh only when easy.',
-    'Side plank: 2 × 20–30 seconds per side; start from knees if needed.',
-    'Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.'
-  ]}
-};
-let day=1,html='';
-weeks.forEach((x,i)=>{
-  if(i===0)html+='<div class="phase-title">Base building</div>';
-  if(i===4)html+='<div class="phase-title">Half marathon training</div>';
-  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${x.p}</span><h2>Week ${x.w}</h2></div><div class="week-meta">${x.m}</div></div><div class="days-grid">`;
-  x.d.forEach((t,weekday)=>{
-    const runDetail=workoutByDay[day];
-    const support = [0,3,5].includes(weekday) ? supportWorkouts.mobility
-      : x.p !== 'Taper' && weekday === 2 ? supportWorkouts.a
-      : x.p !== 'Taper' && weekday === 4 ? supportWorkouts.b : null;
-    const detail = Boolean(runDetail || support);
-    const sections = [];
-    if(runDetail) sections.push(`<strong>Running workout</strong><ul>${runDetail[2].map(v=>`<li>${v}</li>`).join('')}</ul>`);
-    if(support) sections.push(`<strong>${support.title}</strong><ul>${support.items.map(v=>`<li>${v}</li>`).join('')}</ul>`);
-    const extra=detail
-      ? `<button type="button" class="speed-toggle" data-target="detail-${day}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button>
-         <div id="detail-${day}" class="inline-workout">${sections.join('')}</div>`
-      : '';
-    const supportLabel = support ? (support === supportWorkouts.mobility ? 'Mobility' : weekday === 2 ? 'Strength A' : 'Strength B') : '';
-    html+=`<label class="day-card${detail?' has-details':''}">
-      <input type="checkbox" data-day="${day}">
-      <span class="checkmark"></span>
-      <span class="day-label">Day ${day}</span>
-      <span class="workout">${t}${supportLabel ? `<br>+ ${supportLabel}` : ''}</span>
-      ${extra}
-    </label>`;
-    day++;
+(async()=>{
+const planData=await PlanEditor.load();
+if(!planData)return;
+const esc=PlanEditor.escape;
+document.querySelector('h1').textContent=planData.title;
+document.querySelector('header p').textContent=planData.subtitle;
+let html='',previousPhase=null;
+planData.weeks.forEach(week=>{
+  if(previousPhase!==week.phase){html+=`<div class="phase-title">${esc(week.phase)}</div>`;previousPhase=week.phase;}
+  html+=`<section class="week-card"><div class="week-head"><div><span class="eyebrow">${esc(week.phase)}</span><h2>Week ${week.number}</h2></div><div class="week-meta">${esc(week.mileage)}</div></div><div class="days-grid">`;
+  week.days.forEach(d=>{
+    const assigned=d.workouts.map(id=>planData.workouts[id]);
+    const sections=assigned.map(w=>`<strong>${esc(w.title)}</strong><ul>${w.items.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`);
+    const labels=assigned.map(w=>w.label).filter(Boolean);
+    const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${d.id}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${d.id}" class="inline-workout">${sections.join('')}</div>`:'';
+    html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${d.id}"><span class="checkmark"></span><span class="day-label">Day ${d.id}</span><span class="workout">${esc(d.title)}${labels.map(v=>`<br>+ ${esc(v)}`).join('')}</span>${extra}</label>`;
   });
   html+='</div></section>';
 });
 document.getElementById('plan').innerHTML=html;
-
 const workoutDialog=document.getElementById('workoutDialog');
 let workoutTrigger=null;
 document.querySelectorAll('.speed-toggle').forEach(btn=>{
   btn.addEventListener('click',e=>{
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault();e.stopPropagation();
     const panel=document.getElementById(btn.dataset.target);
-    const card=btn.closest('.day-card');
-    document.getElementById('workoutDialogTitle').textContent=card.querySelector('.day-label').textContent+' · Workout';
+    document.getElementById('workoutDialogTitle').textContent=btn.closest('.day-card').querySelector('.day-label').textContent+' · Workout';
     document.getElementById('workoutDialogBody').innerHTML=panel.innerHTML;
-    workoutTrigger=btn;
-    btn.setAttribute('aria-expanded','true');
-    workoutDialog.showModal();
+    workoutTrigger=btn;btn.setAttribute('aria-expanded','true');workoutDialog.showModal();
   });
 });
 document.getElementById('workoutClose').addEventListener('click',()=>workoutDialog.close());
-// Native dialog handles Escape and keeps keyboard focus inside the popup.
 workoutDialog.addEventListener('click',e=>{
-  if(e.target!==workoutDialog) return;
-  const bounds=workoutDialog.getBoundingClientRect();
-  if(e.clientX<bounds.left || e.clientX>bounds.right || e.clientY<bounds.top || e.clientY>bounds.bottom) workoutDialog.close();
+  if(e.target!==workoutDialog)return;
+  const r=workoutDialog.getBoundingClientRect();
+  if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)workoutDialog.close();
 });
-workoutDialog.addEventListener('close',()=>{
-  if(workoutTrigger){workoutTrigger.setAttribute('aria-expanded','false');workoutTrigger.focus();}
-});
+workoutDialog.addEventListener('close',()=>{if(workoutTrigger){workoutTrigger.setAttribute('aria-expanded','false');workoutTrigger.focus();}});
 const LEGACY_KEY='half-marathon-14-week-progress-v1';
 const LOCAL_KEY='half-marathon-14-week-progress-v2';
 const SYNC_CODE_KEY='half-marathon-sync-code-v1';
@@ -647,6 +566,7 @@ if(cloudConfigured && validSyncCode(getSyncCode())){
 }else{
   setStatus('Saved locally — cloud not configured');
 }
+})().catch(error=>{console.error(error);document.getElementById('statusText').textContent='Unable to initialize plan';});
 </script>
 <script>
 (function(){
