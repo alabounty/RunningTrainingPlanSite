@@ -261,7 +261,7 @@ weeks.forEach((x,i)=>{
     const detail = Boolean(runDetail || support);
     const sections = [];
     if(runDetail) sections.push(`<strong>Running workout</strong><ul>${runDetail[2].map(v=>`<li>${v}</li>`).join('')}</ul>`);
-    if(support) sections.push(`<strong>${support.title}</strong><ul>${support.items.map(v=>`<li>${v}</li>`).join('')}</ul>${support !== supportWorkouts.mobility ? `<p>${supportGuidance}</p>` : ''}`);
+    if(support) sections.push(`<strong>${support.title}</strong><ul>${support.items.map(v=>`<li>${v}</li>`).join('')}</ul>`);
     const extra=detail
       ? `<button type="button" class="speed-toggle" data-target="detail-${day}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button>
          <div id="detail-${day}" class="inline-workout">${sections.join('')}</div>`
