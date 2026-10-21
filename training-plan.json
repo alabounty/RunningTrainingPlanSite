@@ -1,68 +1,69 @@
 {
   "version": 1,
-  "title": "14-Week Half Marathon Plan",
-  "subtitle": "Four weeks of base building followed by the 10-week race plan.",
+  "title": "20-Week Winter Base and Durability Plan",
+  "subtitle": "Start with the next full Monday–Sunday week. Begin with 8 easy miles across three runs; build to four runs from week 5, with an optional fifth later by redistributing mileage. Repeat weeks as needed based on hip and foot response; speed is optional and conditional.",
   "weeks": [
     {
       "week": 1,
-      "phase": "Base",
-      "mileage": "15 miles",
+      "phase": "Return and consistency",
+      "mileage": "8 miles",
       "days": [
         {
           "day": "1",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
+            "rules",
             "mobility"
           ]
         },
         {
           "day": "2",
           "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "3",
-          "title": "4 miles easy + 4 × 20 sec strides",
           "workouts": [
             "a"
           ]
         },
         {
-          "day": "4",
-          "title": "Rest",
+          "day": "3",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "4",
+          "title": "Rest",
+          "workouts": []
+        },
+        {
           "day": "5",
-          "title": "3 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "6",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "7",
-          "title": "5 miles LSD",
+          "title": "3 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 2,
-      "phase": "Base",
-      "mileage": "16–18 miles",
+      "phase": "Return and consistency",
+      "mileage": "8 miles",
       "days": [
         {
           "day": "8",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
@@ -70,51 +71,51 @@
         {
           "day": "9",
           "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "10",
-          "title": "4 miles easy + 6 × 20 sec strides",
           "workouts": [
             "a"
           ]
         },
         {
-          "day": "11",
-          "title": "0–2 miles easy",
+          "day": "10",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "11",
+          "title": "Rest",
+          "workouts": []
+        },
+        {
           "day": "12",
-          "title": "3 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "13",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "14",
-          "title": "6 miles LSD",
+          "title": "3 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 3,
-      "phase": "Base",
-      "mileage": "19–22 miles",
+      "phase": "Return and consistency",
+      "mileage": "9 miles",
       "days": [
         {
           "day": "15",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
@@ -122,156 +123,155 @@
         {
           "day": "16",
           "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "17",
-          "title": "5 miles with light fartlek",
           "workouts": [
             "a"
           ]
         },
         {
-          "day": "18",
-          "title": "0–3 miles easy",
+          "day": "17",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "18",
+          "title": "Rest",
+          "workouts": []
+        },
+        {
           "day": "19",
-          "title": "4 miles easy",
+          "title": "2.5 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "20",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "21",
-          "title": "7 miles LSD",
+          "title": "3.5 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 4,
-      "phase": "Base",
-      "mileage": "21–24 miles",
+      "phase": "Return and consistency — lighter week",
+      "mileage": "8 miles",
       "days": [
         {
           "day": "22",
-          "title": "Rest or cross-train",
-          "workouts": [
-            "mobility"
-          ]
-        },
-        {
-          "day": "23",
-          "title": "4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "24",
-          "title": "5 miles easy + 6 × 20 sec strides",
-          "workouts": [
-            "a"
-          ]
-        },
-        {
-          "day": "25",
-          "title": "0–3 miles easy",
-          "workouts": [
-            "mobility"
-          ]
-        },
-        {
-          "day": "26",
-          "title": "4 miles easy",
-          "workouts": [
-            "b"
-          ]
-        },
-        {
-          "day": "27",
-          "title": "Rest or cross-train",
-          "workouts": [
-            "mobility"
-          ]
-        },
-        {
-          "day": "28",
-          "title": "8 miles LSD",
-          "workouts": []
-        }
-      ]
-    },
-    {
-      "week": 5,
-      "phase": "Training",
-      "mileage": "",
-      "days": [
-        {
-          "day": "29",
-          "title": "Rest or cross-train",
-          "workouts": [
-            "mobility"
-          ]
-        },
-        {
-          "day": "30",
-          "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "31",
-          "title": "7 miles with intervals",
-          "workouts": [
-            "run-31",
-            "a"
-          ]
-        },
-        {
-          "day": "32",
           "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "23",
+          "title": "3 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "24",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "25",
+          "title": "Rest",
+          "workouts": []
+        },
+        {
+          "day": "26",
+          "title": "2 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "27",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "28",
+          "title": "3 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "phase": "Easy base",
+      "mileage": "8 miles",
+      "days": [
+        {
+          "day": "29",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "30",
+          "title": "2.5 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "31",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "32",
+          "title": "1 miles easy",
+          "workouts": []
+        },
+        {
           "day": "33",
-          "title": "0–3 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "34",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "35",
-          "title": "8 miles LSD",
+          "title": "2.5 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 6,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Easy base",
+      "mileage": "9 miles",
       "days": [
         {
           "day": "36",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
@@ -279,52 +279,51 @@
         {
           "day": "37",
           "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "38",
-          "title": "6 miles with intervals",
           "workouts": [
-            "run-38",
             "a"
           ]
         },
         {
-          "day": "39",
-          "title": "0–3 miles easy",
+          "day": "38",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "39",
+          "title": "1 miles easy",
+          "workouts": []
+        },
+        {
           "day": "40",
-          "title": "4 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "41",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "42",
-          "title": "8 miles LSD",
+          "title": "3 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 7,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Easy base",
+      "mileage": "10 miles",
       "days": [
         {
           "day": "43",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
@@ -332,414 +331,737 @@
         {
           "day": "44",
           "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "45",
-          "title": "7 miles with intervals",
           "workouts": [
-            "run-45",
             "a"
           ]
         },
         {
-          "day": "46",
-          "title": "0–3 miles easy",
+          "day": "45",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "46",
+          "title": "1.5 miles easy",
+          "workouts": []
+        },
+        {
           "day": "47",
-          "title": "4 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "48",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "49",
-          "title": "10 miles LSD",
+          "title": "3.5 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 8,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Easy base — lighter week",
+      "mileage": "8 miles",
       "days": [
         {
           "day": "50",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "51",
-          "title": "4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "52",
-          "title": "7 miles with intervals",
+          "title": "2.5 miles easy",
           "workouts": [
-            "run-52",
             "a"
           ]
         },
         {
-          "day": "53",
-          "title": "0–3 miles easy",
+          "day": "52",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "53",
+          "title": "1 miles easy",
+          "workouts": []
+        },
+        {
           "day": "54",
-          "title": "4 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "55",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "56",
-          "title": "8 miles with 3 miles at tempo",
-          "workouts": [
-            "run-56"
-          ]
+          "title": "2.5 miles easy",
+          "workouts": []
         }
       ]
     },
     {
       "week": 9,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Base + optional strides",
+      "mileage": "9.5 miles",
       "days": [
         {
           "day": "57",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "58",
-          "title": "4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "59",
-          "title": "7–8 miles with intervals",
+          "title": "3 miles easy",
           "workouts": [
-            "run-59",
             "a"
           ]
         },
         {
-          "day": "60",
-          "title": "0–3 miles easy",
+          "day": "59",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "60",
+          "title": "1.5 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
           "day": "61",
-          "title": "4 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "62",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "63",
-          "title": "10–12 miles LSD",
+          "title": "3 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 10,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Base + optional strides",
+      "mileage": "10.5 miles",
       "days": [
         {
           "day": "64",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "65",
-          "title": "4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "66",
-          "title": "7–8 miles with intervals",
+          "title": "3 miles easy",
           "workouts": [
-            "run-66",
             "a"
           ]
         },
         {
-          "day": "67",
-          "title": "0–3 miles easy",
+          "day": "66",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "67",
+          "title": "2 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
           "day": "68",
-          "title": "3–4 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "69",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "70",
-          "title": "9–10 miles with 4 miles at tempo or 5K race",
-          "workouts": [
-            "run-70"
-          ]
+          "title": "3.5 miles easy",
+          "workouts": []
         }
       ]
     },
     {
       "week": 11,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Base + optional strides",
+      "mileage": "12 miles",
       "days": [
         {
           "day": "71",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "72",
-          "title": "4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "73",
-          "title": "8 miles with intervals",
+          "title": "3.5 miles easy",
           "workouts": [
-            "run-73",
             "a"
           ]
         },
         {
-          "day": "74",
-          "title": "0–3 miles easy",
+          "day": "73",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "74",
+          "title": "2.5 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
           "day": "75",
-          "title": "3 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "76",
-          "title": "Rest",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "77",
-          "title": "12–14 miles LSD",
+          "title": "4 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 12,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Base + optional strides — lighter week",
+      "mileage": "10 miles",
       "days": [
         {
           "day": "78",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "79",
-          "title": "3–4 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "80",
-          "title": "7–8 miles with intervals",
+          "title": "3 miles easy",
           "workouts": [
-            "run-80",
             "a"
           ]
         },
         {
-          "day": "81",
-          "title": "0–3 miles easy",
+          "day": "80",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "81",
+          "title": "2 miles easy",
+          "workouts": []
+        },
+        {
           "day": "82",
-          "title": "5 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "83",
-          "title": "Rest",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "84",
-          "title": "10 miles with 6 miles at tempo",
-          "workouts": [
-            "run-84"
-          ]
+          "title": "3 miles easy",
+          "workouts": []
         }
       ]
     },
     {
       "week": 13,
-      "phase": "Training",
-      "mileage": "",
+      "phase": "Base + optional strides",
+      "mileage": "12 miles",
       "days": [
         {
           "day": "85",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "86",
-          "title": "3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "87",
-          "title": "8 miles with intervals",
+          "title": "3.5 miles easy",
           "workouts": [
-            "run-87",
             "a"
           ]
         },
         {
-          "day": "88",
-          "title": "0–3 miles easy",
+          "day": "87",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "88",
+          "title": "2.5 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
           "day": "89",
-          "title": "3 miles easy",
+          "title": "2 miles easy",
           "workouts": [
             "b"
           ]
         },
         {
           "day": "90",
-          "title": "Rest or cross-train",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "91",
-          "title": "8 miles LSD",
+          "title": "4 miles easy",
           "workouts": []
         }
       ]
     },
     {
       "week": 14,
-      "phase": "Taper",
-      "mileage": "",
+      "phase": "Base + optional strides",
+      "mileage": "13.5 miles",
       "days": [
         {
           "day": "92",
-          "title": "Rest or cross-train",
+          "title": "Rest",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "93",
-          "title": "2–3 miles easy",
-          "workouts": []
-        },
-        {
-          "day": "94",
-          "title": "6 miles with intervals",
+          "title": "4 miles easy",
           "workouts": [
-            "run-94"
+            "a"
           ]
         },
         {
-          "day": "95",
-          "title": "3 miles easy",
+          "day": "94",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
+          "day": "95",
+          "title": "3 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
           "day": "96",
-          "title": "Rest",
-          "workouts": []
+          "title": "2 miles easy",
+          "workouts": [
+            "b"
+          ]
         },
         {
           "day": "97",
-          "title": "2–3 miles easy",
+          "title": "Rest or easy cross-train",
           "workouts": [
             "mobility"
           ]
         },
         {
           "day": "98",
-          "title": "RACE DAY — Half Marathon",
+          "title": "4.5 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 15,
+      "phase": "Base + optional strides",
+      "mileage": "15 miles",
+      "days": [
+        {
+          "day": "99",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "100",
+          "title": "4 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "101",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "102",
+          "title": "3.5 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
+          "day": "103",
+          "title": "2.5 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "104",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "105",
+          "title": "5 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 16,
+      "phase": "Base + optional strides — lighter week",
+      "mileage": "13 miles",
+      "days": [
+        {
+          "day": "106",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "107",
+          "title": "3.5 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "108",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "109",
+          "title": "3 miles easy",
+          "workouts": []
+        },
+        {
+          "day": "110",
+          "title": "2 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "111",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "112",
+          "title": "4.5 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 17,
+      "phase": "Aerobic consolidation",
+      "mileage": "17 miles",
+      "days": [
+        {
+          "day": "113",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "114",
+          "title": "4.5 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "115",
+          "title": "Rest or easy cross-train; optional redistributed easy run if ready",
+          "workouts": [
+            "frequency",
+            "mobility"
+          ]
+        },
+        {
+          "day": "116",
+          "title": "4 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
+          "day": "117",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "118",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "119",
+          "title": "5.5 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 18,
+      "phase": "Aerobic consolidation",
+      "mileage": "18.5 miles",
+      "days": [
+        {
+          "day": "120",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "121",
+          "title": "5 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "122",
+          "title": "Rest or easy cross-train; optional redistributed easy run if ready",
+          "workouts": [
+            "frequency",
+            "mobility"
+          ]
+        },
+        {
+          "day": "123",
+          "title": "4.5 miles easy; optional 4 × 10 sec strides if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
+          "day": "124",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "125",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "126",
+          "title": "6 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 19,
+      "phase": "Aerobic consolidation",
+      "mileage": "18.5 miles",
+      "days": [
+        {
+          "day": "127",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "128",
+          "title": "5 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "129",
+          "title": "Rest or easy cross-train; optional redistributed easy run if ready",
+          "workouts": [
+            "frequency",
+            "mobility"
+          ]
+        },
+        {
+          "day": "130",
+          "title": "4.5 miles easy; optional 6 × 1 min controlled fartlek if ready",
+          "workouts": [
+            "speed"
+          ]
+        },
+        {
+          "day": "131",
+          "title": "3 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "132",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "133",
+          "title": "6 miles easy",
+          "workouts": []
+        }
+      ]
+    },
+    {
+      "week": 20,
+      "phase": "Aerobic consolidation — lighter week",
+      "mileage": "15 miles",
+      "days": [
+        {
+          "day": "134",
+          "title": "Rest",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "135",
+          "title": "4 miles easy",
+          "workouts": [
+            "a"
+          ]
+        },
+        {
+          "day": "136",
+          "title": "Rest or easy cross-train; optional redistributed easy run if ready",
+          "workouts": [
+            "frequency",
+            "mobility"
+          ]
+        },
+        {
+          "day": "137",
+          "title": "3.5 miles easy",
+          "workouts": []
+        },
+        {
+          "day": "138",
+          "title": "2.5 miles easy",
+          "workouts": [
+            "b"
+          ]
+        },
+        {
+          "day": "139",
+          "title": "Rest or easy cross-train",
+          "workouts": [
+            "mobility"
+          ]
+        },
+        {
+          "day": "140",
+          "title": "5 miles easy",
           "workouts": []
         }
       ]
@@ -750,164 +1072,87 @@
       "title": "Mobility - 5–8 minutes",
       "label": "Mobility",
       "items": [
-        "Quad foam rolling: 60–90 seconds per leg, gentle pressure; avoid the painful outer knee.",
-        "Knee-to-wall ankle rocks: 8–10 per side; keep heel down and stop before pinching or pain.",
-        "Calf stretch: 2 × 20–30 seconds per side with knee straight, then slightly bent; gentle tension only.",
-        "Outward foot press: seated, press the outside of your foot into a cushion against a wall without moving the knee or ankle. 5 × 5–10 seconds per side, only if comfortable."
+        "Use gentle, comfortable movement for about 5–8 minutes on 3–5 days per week. Do not force range or use stretching to push through soreness.",
+        "Before each run: walk comfortably for 5 minutes, then gentle marching for 30–60 seconds and 8–10 knee-to-wall ankle rocks per side. Keep the heel down; omit rocks if they reproduce outer-foot/ankle pain.",
+        "Separate mobility session: supine hip rotations with knees bent, 6–8 slow repetitions per side within a comfortable range; do not pull the knee across the body or into the sore outer hip.",
+        "Gentle calf stretch: 20 seconds per side with the knee straight, then 20 seconds with it slightly bent. No bouncing; omit if it reproduces outer-foot/ankle pain. Do sustained stretches after running or separately, rather than before.",
+        "Temporarily omit deep pigeon, figure-four, and side stretches that pull across the sore outer hip. Do not foam roll or deeply massage directly over the bony outer hip.",
+        "Omit any movement that increases symptoms during the session, later that day, or the following morning. Mobility supports comfortable movement; it does not replace gradual strength work or assessment of persistent symptoms."
       ]
     },
     "a": {
       "title": "Strength A - about 25 minutes",
       "label": "Strength A",
       "items": [
-        "Run first. If recovered, lift later, ideally several hours afterward. Skip if speed work leaves you exhausted.",
+        "Do strength after the easy run or several hours later. First two weeks: one set per exercise with light loads; thereafter two sets if recovered. Skip or modify anything that reproduces hip/foot pain.",
         "Warm up: 5 minutes of comfortable walking or cycling.",
         "Goblet squat: 2 × 8–10; comfortable depth, knees follow toes. Knees may move past toes.",
         "Dumbbell Romanian deadlift: 2 × 8–10; soft knees, hips back, weights close.",
         "Clamshell: 2 × 12–15 per side; keep hips stacked without rolling backward.",
-        "Straight-knee calf raise: 2 × 10–12, both feet on flat ground; lower over 3 seconds. Use seated raises if standing reproduces soreness.",
+        "Straight-knee calf raise: 2 × 10–12, both feet on flat ground; lower over 3 seconds. Omit if it reproduces outer-foot/ankle soreness; do not assume seated raises will be comfortable.",
         "Supported single-leg balance: 2 × 20–30 seconds per side; stand near support and keep pressure across the foot.",
-        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve."
+        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.",
+        "Build consistency before adding weight. Add the smallest available load only when all sets feel controlled with 2–3 repetitions in reserve and no symptom increase the next morning; hold running mileage that week. No jumps or loaded hopping initially.",
+        "Avoid lying directly on the sore right outer hip. Modify or omit side-lying exercises and side planks if pressure or the movement increases soreness; do not force completion of every exercise."
       ]
     },
     "b": {
       "title": "Strength B - about 20–25 minutes",
       "label": "Strength B",
       "items": [
-        "Run first, then lift if recovered; separate by several hours when practical.",
+        "Do strength after the easy run or several hours later. First two weeks: one set per exercise with light loads; thereafter two sets if recovered. Skip or modify anything that reproduces hip/foot pain.",
         "Warm up: 5 minutes of comfortable walking or cycling.",
         "Supported split squat: 2 × 8 per side; rear foot stays on floor, hold a rack for balance.",
         "Glute bridge: 2 × 10–15; lift through hips without arching the lower back.",
         "Side-lying leg raise: 2 × 10–12 per side; top leg slightly behind you, toes facing forward.",
         "Seated bent-knee calf raise: 2 × 12–15; knees about 90°, feet on flat ground. Raise and lower slowly; add a dumbbell on the thigh only when easy.",
         "Side plank: 2 × 20–30 seconds per side; start from knees if needed.",
-        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve."
+        "Rest 60–90 seconds between strength sets; finish with 2–3 repetitions in reserve.",
+        "Build consistency before adding weight. Add the smallest available load only when all sets feel controlled with 2–3 repetitions in reserve and no symptom increase the next morning; hold running mileage that week. No jumps or loaded hopping initially.",
+        "Avoid lying directly on the sore right outer hip. Modify or omit side-lying exercises and side planks if pressure or the movement increases soreness; do not force completion of every exercise."
       ]
     },
-    "run-31": {
-      "title": "7 miles with intervals",
-      "label": "",
+    "rules": {
+      "title": "Read before starting and before progressing",
+      "label": "Plan rules",
       "items": [
-        "2 miles easy warmup",
-        "8 × 400m at 2:00 (8:03/mile), 200m recovery",
-        "2 miles easy cooldown"
+        "This is a conservative training template, not a diagnosis or injury rehabilitation prescription. Arrange a sports PT or sports medicine assessment for recurring hip and outer-foot/ankle symptoms.",
+        "Start when walking is comfortable, the foot is pain-free during daily activity, and the recent easy run caused no foot pain during, afterward, or the following morning. Mild baseline hip soreness around 1–2/10 may be monitored only if stable, without altered stride or an increase afterward or the next morning. If these conditions are not met, pause progression and seek guidance.",
+        "All distances are ceilings, not requirements. Week 1 adds frequency with short runs; shorten or omit a session if recovery is uncertain. Never make up missed miles.",
+        "Stop for returning outer-foot/ankle pain, increasing hip pain, sharp pain, swelling, or any change in stride. Do not push through symptoms. Resume only after settling; return to the last comfortable level rather than advancing.",
+        "Advance only after a comfortable week with no foot pain and no increase above baseline hip soreness during runs, afterward, or the next morning. Repeat or step back if symptoms increase, fatigue accumulates, or strength soreness affects running. Arrange a sports PT assessment if low-level hip soreness persists despite reduced training, or if foot pain returns; obtain guidance before progressing.",
+        "Pinpoint bony foot tenderness, swelling, rest/night pain, or painful walking needs medical assessment before running. Inability to bear weight warrants urgent assessment.",
+        "Easy means full-sentence conversation, roughly effort 2–3 out of 10; use effort rather than a pace target. Use flat, predictable surfaces; choose a treadmill or cross-training when footing is icy.",
+        "Begin each run with 5 minutes of comfortable walking and finish with a short walk. Walk breaks are fine when pain-free. Running mileage includes any strides or faster segments.",
+        "Pickleball counts as additional impact and lateral loading, not recovery. Initially replace a run with it rather than add it, and avoid combining both on the same day. Stop if symptomatic.",
+        "Optional cross-training: 20–40 minutes of easy cycling or swimming only if comfortable during and the following morning. Keep at least one full rest day.",
+        "The schedule is a suggested progression, not a guaranteed safe rate. Do not increase mileage, running frequency, strength load, and speed simultaneously.",
+        "After this block, hold a comfortable volume for several weeks. Plan the final 8–12 weeks around the actual May race distance and date; this block has no race taper.",
+        "Four days from week 5 is the default. See the fifth-day option from week 17; it redistributes mileage and requires holding weekly volume and faster running during the transition."
       ]
     },
-    "run-38": {
-      "title": "6 miles with intervals",
-      "label": "",
+    "speed": {
+      "title": "Optional faster-running gates",
+      "label": "Speed guidance",
       "items": [
-        "2 miles easy warmup",
-        "3 × 400m at 2:00, 200m recovery",
-        "2 × 600m at 3:00, 200m recovery",
-        "2 × 400m at 2:00, 200m recovery",
-        "1 mile easy cooldown"
+        "Weeks 1–8: easy running only. Week 9 is the earliest optional stride week, not a deadline.",
+        "Before strides: at least four consecutive symptom-free weeks of running, including mornings afterward; comfortable walking and strength work. Recurrent foot pain should be assessed before adding speed.",
+        "Strides: after at least 15 minutes easy, run 4 × 10 seconds relaxed and quick on flat, secure footing, never sprinting. Walk/jog 60–90 seconds between. Include within the listed total mileage; no extra miles.",
+        "On weeks marked optional strides, keep them once weekly and unchanged while mileage builds. Skip them on lighter weeks or whenever recovery is uncertain.",
+        "Before fartlek: at least three comfortable stride sessions across three weeks and at least four comfortable weeks near 18–20 miles/week. Otherwise keep all running easy.",
+        "Fartlek replaces strides: within the listed run, warm up 15 minutes easy, do 6 × 1 minute controlled at effort 5–6/10 with 2 minutes easy between, then at least 10 minutes easy. No pace target, sprinting, or hard finish.",
+        "Only one faster session per week; Sunday remains easy. Hold mileage for the first fartlek week. If any symptoms recur, stop faster running and return to assessment and easy-running rules."
       ]
     },
-    "run-45": {
-      "title": "7 miles with intervals",
-      "label": "",
+    "frequency": {
+      "title": "Optional fifth running day",
+      "label": "Five-day option",
       "items": [
-        "2 miles easy warmup",
-        "3 × 400m at 2:00, 200m recovery",
-        "3 × 800m at 4:00, 400m recovery",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-52": {
-      "title": "7 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "2 × 400m, 1 × 800m, 1 × 1200m, 1 × 800m, 2 × 400m",
-        "Short reps at about 8:03/mile with recovery jogs",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-56": {
-      "title": "8 miles with 3 miles at tempo",
-      "label": "",
-      "items": [
-        "3 miles easy warmup",
-        "3 miles at 8:44/mile",
-        "2 miles easy cooldown"
-      ]
-    },
-    "run-59": {
-      "title": "7–8 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "400m, 800m, 1200m, 1 mile, 800m, 400m ladder",
-        "Short reps at about 8:03/mile; mile at 8:00–8:10",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-66": {
-      "title": "7–8 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "1 × 400m, 5 × 800m, 1 × 400m",
-        "400s at 2:00; 800s at 4:00",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-70": {
-      "title": "9–10 miles with 4 miles at tempo (or 5K race)",
-      "label": "",
-      "items": [
-        "3 miles easy warmup",
-        "4 miles at 8:44/mile",
-        "3 miles easy cooldown"
-      ]
-    },
-    "run-73": {
-      "title": "8 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "400m, 800m, 1 mile, 2 × 800m",
-        "Short reps at about 8:03/mile; mile at 8:00–8:10",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-80": {
-      "title": "7–8 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "10 × 400m at 2:00, 200m recovery",
-        "1–2 miles easy cooldown"
-      ]
-    },
-    "run-84": {
-      "title": "10 miles with 6 miles at tempo",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "6 miles at 8:44/mile",
-        "2 miles easy cooldown"
-      ]
-    },
-    "run-87": {
-      "title": "8 miles with intervals",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "400m, 1 mile, 1200m, 800m, 400m, 1200m, 800m, 400m",
-        "Short reps at about 8:03/mile; mile at 8:00–8:10",
-        "1 mile easy cooldown"
-      ]
-    },
-    "run-94": {
-      "title": "6 miles with intervals (taper)",
-      "label": "",
-      "items": [
-        "2 miles easy warmup",
-        "400m, 800m, 400m, 800m, 400m at about 8:03/mile",
-        "Recovery jogs between reps",
-        "1 mile easy cooldown"
+        "Four days is the default from week 5. A fifth day is optional from week 17 only after at least four comfortable consecutive weeks on four days, including recovery the following mornings. Staying on four days is equally acceptable.",
+        "For the first two five-day weeks, move 1.5 miles from Thursday to Wednesday: Wednesday becomes 1.5 miles easy, and Thursday is shortened by 1.5 miles. Weekly mileage stays unchanged. Hold the previous comfortable weekly total during this frequency change; do not also take the scheduled mileage increase.",
+        "Keep Tuesday, Wednesday and Thursday easy during this transition; skip strides and fartlek. If three consecutive running days cause symptoms or fatigue, return to four days.",
+        "After two comfortable five-day weeks, keep the same redistribution or return to four days. Add distance or speed only after frequency feels settled. Never add a fifth run on top of the listed mileage.",
+        "Keep Monday as full rest, strength after Tuesday and Friday runs, and Saturday available for rest or comfortable cross-training."
       ]
     }
   }
