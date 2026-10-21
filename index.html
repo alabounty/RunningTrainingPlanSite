@@ -13,6 +13,14 @@ header{background:linear-gradient(135deg,#0b5673,#12364a);color:#fff;padding:42p
 main{padding:24px 0 56px}.phase-title{margin:34px 0 14px;display:flex;align-items:center;gap:10px;font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em}.phase-title:after{content:"";height:1px;flex:1;background:var(--line)}.week-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}.week-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:14px}.week-head h2{margin:2px 0 0;font-size:1.65rem}.week-meta{color:var(--muted);font-weight:700}.days-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.day-card{position:relative;min-height:118px;border:1px solid var(--line);border-radius:12px;padding:12px 12px 12px 42px;background:#fbfdfe;cursor:pointer;transition:.12s}.day-card:hover{transform:translateY(-1px);border-color:#9fd9df}.day-card input{position:absolute;opacity:0}.checkmark{position:absolute;left:12px;top:13px;width:20px;height:20px;border:2px solid #93a9b5;border-radius:5px;background:#fff}.day-card input:checked+.checkmark{background:var(--accent-dark);border-color:var(--accent-dark)}.day-card input:checked+.checkmark:after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}.day-card:has(input:checked){background:var(--done);border-color:#b9ded5}.day-card:has(input:checked) .workout{text-decoration:line-through;color:#6c7b78}.day-label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-dark);margin-bottom:8px}.workout{display:block;font-size:.92rem;line-height:1.3;font-weight:650}
 .info-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel h2{margin-top:0}.key{margin:0;padding-left:1.2rem;color:#34505f}.key li{margin:.55rem 0}details{border-top:1px solid var(--line)}details:first-of-type{border-top:0}summary{cursor:pointer;display:grid;grid-template-columns:150px 1fr;gap:14px;padding:13px 0;align-items:start}summary span{color:var(--muted);font-weight:700}details ul{margin:0 0 14px 164px;padding-left:18px;color:#34505f}.notice{margin-top:16px;font-size:.9rem;color:var(--muted);background:#eef5f8;border-radius:12px;padding:12px 14px}footer{padding:20px 0 50px;color:var(--muted);font-size:.86rem}
 
+.plan-guidance{scroll-margin-top:calc(var(--sticky-height, 0px) + 16px)}
+.plan-guidance>p{color:var(--muted);line-height:1.5}
+.plan-guidance details{scroll-margin-top:calc(var(--sticky-height, 0px) + 16px)}
+.plan-guidance summary{grid-template-columns:1fr;display:list-item;font-weight:700;color:var(--accent-dark);line-height:1.4}
+.plan-guidance details ul{margin:0 0 18px;padding-left:22px;line-height:1.6}
+.plan-guidance li{margin:10px 0}
+.guidance-links{display:block;margin-top:10px;font-size:.8rem;line-height:1.5}
+.guidance-links a{color:var(--accent-dark);font-weight:700}
 .speed-toggle{
   margin-top:10px;
   border:0;
@@ -177,8 +185,8 @@ body{
   </section>
 </div>
 
-<main class="container"><div id="plan">Loading plan…</div>
-<div class="info-grid" id="workouts"><section class="panel"><h2>Workout key</h2><ul class="key"><li><strong>Easy:</strong> conversational effort; no faster than about 10:49/mile.</li><li><strong>LSD:</strong> long slow distance at a conservative, conversational pace.</li><li><strong>Tempo:</strong> comfortably hard, about 8:44/mile.</li><li><strong>Intervals:</strong> faster repeats with easy jogging or walking recoveries.</li><li><strong>Strides:</strong> relaxed 20-second accelerations with full recovery.</li><li><strong>Strength:</strong> Wednesday A and Friday B, after running. Start with one set for your first week of strength; build to two. Race week: omit strength.</li><li><strong>Mobility:</strong> Monday, Thursday and Saturday; gentle, comfortable movement. Skip anything that worsens symptoms.</li></ul><div class="notice">Outer foot/ankle soreness is not a confirmed diagnosis. Reduce running, especially speed work and hills, if it aggravates symptoms. Pause running and seek assessment for pinpoint bone tenderness, swelling, pain walking or pain at rest; seek a clinician or sports PT if symptoms persist despite 1–2 weeks of reduced load.</div></section></div></main>
+<main class="container"><section class="panel plan-guidance" id="guidance" aria-labelledby="guidanceTitle" hidden><h2 id="guidanceTitle">Training guidance</h2><div id="guidanceSections"></div></section><div id="plan">Loading plan…</div>
+</main>
 <dialog id="workoutDialog" class="workout-dialog" aria-labelledby="workoutDialogTitle">
   <div class="workout-dialog-head"><h2 id="workoutDialogTitle">Workout</h2><button type="button" id="workoutClose" class="workout-close" autofocus aria-label="Close workout">Close</button></div>
   <div id="workoutDialogBody" class="workout-dialog-body"></div>
@@ -192,8 +200,17 @@ body{
 const planData=await TrainingPlan.load();
 if(!planData)return;
 const esc=TrainingPlan.escape;
+document.title=planData.title;
 document.querySelector('h1').textContent=planData.title;
+document.querySelector('header .eyebrow').textContent='Training plan';
 document.querySelector('header p').textContent=planData.subtitle;
+const guidanceIds=['rules','speed','frequency'].filter(id=>Object.hasOwn(planData.workouts,id));
+const guidanceSet=new Set(guidanceIds);
+document.getElementById('guidanceSections').innerHTML=guidanceIds.map(id=>{
+  const section=planData.workouts[id];
+  return `<details id="guidance-${id}"><summary>${esc(section.label)}</summary><ul>${section.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul></details>`;
+}).join('');
+document.getElementById('guidance').hidden=!guidanceIds.length;
 let html='',previousPhase=null;
 planData.weeks.forEach(week=>{
   if(previousPhase!==week.phase){html+=`<div class="phase-title">${esc(week.phase)}</div>`;previousPhase=week.phase;}
@@ -202,7 +219,9 @@ planData.weeks.forEach(week=>{
     const rowTitle=type==='running'?'Running':'Strength / mobility';
     html+=`<h3 class="workout-row-title" id="week-${week.week}-${type}">${rowTitle}</h3><div class="days-grid" role="group" aria-labelledby="week-${week.week}-${type}">`;
     week.days.forEach(d=>{
-      const assigned=d.workouts.filter(id=>type==='running'?id.startsWith('run-'):!id.startsWith('run-')).map(id=>planData.workouts[id]);
+      const assigned=d.workouts.filter(id=>!guidanceSet.has(id)&&(type==='running'?id.startsWith('run-'):!id.startsWith('run-'))).map(id=>planData.workouts[id]);
+      const guidanceLinks=type==='running'?d.workouts.filter(id=>guidanceSet.has(id)).map(id=>`<a href="#guidance-${id}" data-guidance="${id}">${esc(planData.workouts[id].label)}</a>`):[];
+      const guidance=guidanceLinks.length?`<span class="guidance-links">${guidanceLinks.join('<br>')}</span>`:'';
       if(type==='support'&&!assigned.length){
         html+=`<div class="day-card empty"><span class="day-label">Day ${d.day}</span><span class="workout">None scheduled</span></div>`;
         return;
@@ -212,13 +231,17 @@ planData.weeks.forEach(week=>{
       const key=type==='running'?d.day:`${d.day}-support`;
       const sections=assigned.map(w=>`<strong>${esc(w.title)}</strong><ul>${w.items.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`);
       const extra=sections.length?`<button type="button" class="speed-toggle" data-target="detail-${key}" aria-expanded="false" aria-controls="workoutDialog" aria-haspopup="dialog">Show workout</button><div id="detail-${key}" class="inline-workout">${sections.join('')}</div>`:'';
-      html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${key}" aria-label="Day ${d.day}, ${rowTitle}: ${esc(title)}"><span class="checkmark"></span><span class="day-label">Day ${d.day}</span><span class="workout">${esc(title)}</span>${extra}</label>`;
+      html+=`<label class="day-card${sections.length?' has-details':''}"><input type="checkbox" data-day="${key}" aria-label="Day ${d.day}, ${rowTitle}: ${esc(title)}"><span class="checkmark"></span><span class="day-label">Day ${d.day}</span><span class="workout">${esc(title)}</span>${extra}${guidance}</label>`;
     });
     html+='</div>';
   });
   html+='</section>';
 });
 document.getElementById('plan').innerHTML=html;
+document.querySelectorAll('[data-guidance]').forEach(link=>link.addEventListener('click',event=>{
+  event.stopPropagation();
+  document.getElementById('guidance-'+link.dataset.guidance).open=true;
+}));
 const workoutDialog=document.getElementById('workoutDialog');
 let workoutTrigger=null;
 document.querySelectorAll('.speed-toggle').forEach(btn=>{
@@ -587,6 +610,11 @@ if(cloudConfigured && validSyncCode(getSyncCode())){
     const shell = document.querySelector('.sticky-shell');
     if(!shell) return;
     document.documentElement.style.setProperty('--sticky-height', shell.offsetHeight + 'px');
+  }
+  // Plan content loads asynchronously and can change the header's height.
+  const shell = document.querySelector('.sticky-shell');
+  if(shell && typeof ResizeObserver !== 'undefined'){
+    new ResizeObserver(setStickyHeight).observe(shell);
   }
   window.addEventListener('load', setStickyHeight);
   window.addEventListener('resize', setStickyHeight);
